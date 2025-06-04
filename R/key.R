@@ -76,7 +76,41 @@ apikey_store <- function(key_name, key, password = NULL, overwrite = FALSE) {
 
 
   key_path <- rappdirs::user_config_dir("coinbaseapi")
-  key_filename <- paste0(key_path, "api.key")
-  writeBin(key_obj_enc, key_filename)
+  key_filename <- file.path(key_path, "api.key")
+  proceed <- TRUE
+  if (file.exists(key_filename)) {
+    if (interactive()) {
+      proceed <- switch(utils::menu(c("No", "Yes"),
+                                    TRUE,
+                                    "File already exists. Overwrite?"),
+                        "1" = FALSE,
+                        "2" = TRUE)
+    } else {
+      proceed <- overwrite
+    }
+  }
+  if (proceed) {
+    if (!dir.exists(key_path)) {
+      dir.create(key_path, recursive = TRUE, mode = "0700")
+    }
+    tryCatch({
+      writeBin(serialize(list(version = 1L,
+                              salt = salt,
+                              encrypted_key = key_obj_enc),
+                         NULL),
+               key_filename)
+    },
+    error = function (e) {
+      suppressWarnings(rm(salt, key_obj_enc))
+      gc(verbose = FALSE)
+      stop("Failure while saving the file: ", e$message)
+    })
+
+    Sys.chmod(key_path, "0700")
+    Sys.chmod(key_filename, "600")
+
+  } else {
+    message("Canceled by user request on existing file. Aborting...")
+  }
 
 }
