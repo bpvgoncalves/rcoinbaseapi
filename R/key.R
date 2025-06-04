@@ -24,13 +24,47 @@ apikey_store <- function(key_name, key, password = NULL, overwrite = FALSE) {
                             key = key),
                        NULL)
 
+  salt <- openssl::rand_bytes(16)
   if (is.null(password)) {
-    db_key <- openssl::sha3(openssl::askpass())
-  } else {
-    db_key <- openssl::sha3(password)
-    rm(password)
+    if (interactive()) {
+      pass_prompt <- "Please enter a password for secure API key storage: "
+      password <- openssl::askpass(pass_prompt)
+      if (is.null(password)) {
+        stop("Cancelled by user. Aborting...")
+      }
+
+      pass_prompt <- "Please re-enter the password: "
+      password_verify <- openssl::askpass(pass_prompt)
+      if (is.null(password_verify)) {
+        rm(password)
+        gc(verbose = FALSE)
+        stop("Cancelled by user. Aborting...")
+      }
+
+      if (password != password_verify) {
+        rm(password, password_verify)
+        gc(verbose = FALSE)
+        stop("Entered passwords did not match. Aborting...")
+      }
+
+      rm(password_verify)
+      gc(verbose = FALSE)
+    } else {
+      suppressWarnings(rm(salt, key_obj))
+      gc(verbose = FALSE)
+      stop("Password not provided on non-interactive session. Aborting...")
+    }
   }
 
+  tryCatch({
+    db_key <- openssl::bcrypt_pbkdf(password, salt, 64L, 32L)
+  },
+  error = function(e) {
+    suppressWarnings(rm(key_obj, salt, password))
+    gc(verbose = FALSE)
+    stop("Failure while deriving encryption key from the password: ", e$message)
+  })
+  rm(password)
   key_obj_enc <- openssl::aes_gcm_encrypt(key_obj, db_key)
 
 
