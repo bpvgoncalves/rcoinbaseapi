@@ -65,7 +65,14 @@ apikey_store <- function(key_name, key, password = NULL, overwrite = FALSE) {
     stop("Failure while deriving encryption key from the password: ", e$message)
   })
   rm(password)
-  key_obj_enc <- openssl::aes_gcm_encrypt(key_obj, db_key)
+
+  tryCatch({
+    key_obj_enc <- openssl::aes_gcm_encrypt(key_obj, db_key)
+  }, error = function(e) {
+    suppressWarnings(rm(key_obj, salt, db_key))
+    gc(verbose = FALSE)
+    stop("Failure while encrypting the keys: ", e$message)
+  })
 
 
   key_path <- rappdirs::user_config_dir("coinbaseapi")
