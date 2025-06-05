@@ -114,3 +114,64 @@ apikey_store <- function(key_name, key, password = NULL, overwrite = FALSE) {
   }
 
 }
+
+
+apikey_read <- function(password = NULL) {
+
+  key_path <- rappdirs::user_config_dir("coinbaseapi")
+  key_filename <- file.path(key_path, "api.key")
+
+  if (!file.exists(key_filename)) {
+    safe_stop("No stored API key found at the expected location.")
+  }
+
+  tryCatch({
+    key_bin <- readBin(key_filename, what = "raw", n = file.info(key_filename)$size)
+  }, error = function(e) {
+    stop("Failed to read stored key file: ", e$message)
+  })
+
+  tryCatch({
+    key_data <- unserialize(key_bin)
+  }, error = function(e) {
+    safe_stop("Failed to parse stored key file. Possibly corrupted or incompatible format.")
+  })
+
+  if (!all(c("version", "salt", "encrypted_key") %in% names(key_data))) {
+    safe_stop("Invalid key file format.")
+  }
+
+  # Prompt for password if not provided
+  if (is.null(password)) {
+    if (interactive()) {
+      pass_prompt <- "Enter the password to decrypt your API key: "
+      password <- openssl::askpass(pass_prompt)
+      if (is.null(password)) {
+        safe_stop("Password entry canceled by user. Aborting.")
+      }
+    } else {
+      safe_stop("Password must be provided in non-interactive sessions.")
+    }
+  }
+
+  # Derive encryption key and decrypt data
+  tryCatch({
+    db_key <- openssl::bcrypt_pbkdf(password, key_data$salt, 64L, 32L)
+  }, error = function(e) {
+    stop("Failed to derive decryption key: ", e$message)
+  })
+  suppressWarnings(rm(password))
+
+  tryCatch({
+    result <- unserialize(openssl::aes_gcm_decrypt(key_data$encrypted_key, db_key))
+  }, error = function(e) {
+    stop("Failed to decrypt API key. Possibly wrong password or corrupted file: ", e$message)
+  })
+
+  # Cleanup
+  suppressWarnings(rm(db_key, key_bin, key_data))
+  gc(verbose = FALSE)
+  class(result) <- c("api_key", class(result))
+
+  return(result)
+}
