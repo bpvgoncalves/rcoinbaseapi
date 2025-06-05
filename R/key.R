@@ -116,6 +116,21 @@ apikey_store <- function(key_name, key, password = NULL, overwrite = FALSE) {
 }
 
 
+
+#' API Key - Read
+#'
+#' Reads and decrypts a previously stored API key.
+#'
+#' @param password String. The password used to encrypt the key.
+#'
+#' @returns A list with elements `name` and `key`, or stops with an error on failure.
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' apikey_read("a_very_strong_password_that_nobody_will_ever_find")
+#' }
+#'
 apikey_read <- function(password = NULL) {
 
   key_path <- rappdirs::user_config_dir("coinbaseapi")
