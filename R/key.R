@@ -30,7 +30,7 @@ apikey_store <- function(key_name, key, password = NULL, overwrite = FALSE) {
       pass_prompt <- "Please enter a password for secure API key storage: "
       password <- openssl::askpass(pass_prompt)
       if (is.null(password)) {
-        stop("Cancelled by user. Aborting...")
+        cli::cli_abort(c("Cancelled by user.", "x" = "Aborting..."))
       }
 
       pass_prompt <- "Please re-enter the password: "
@@ -38,21 +38,21 @@ apikey_store <- function(key_name, key, password = NULL, overwrite = FALSE) {
       if (is.null(password_verify)) {
         rm(password)
         gc(verbose = FALSE)
-        stop("Cancelled by user. Aborting...")
+        cli::cli_abort(c("Cancelled by user.", "x" = "Aborting..."))
       }
 
       if (password != password_verify) {
         rm(password, password_verify)
         gc(verbose = FALSE)
-        stop("Entered passwords did not match. Aborting...")
+        cli::cli_abort(c("Entered passwords not matching.", "x" = "Aborting..."))
       }
-
       rm(password_verify)
       gc(verbose = FALSE)
     } else {
       suppressWarnings(rm(salt, key_obj))
       gc(verbose = FALSE)
-      stop("Password not provided on non-interactive session. Aborting...")
+      cli::cli_abort(c("Password must be provided in non-interactive sessions.",
+                       "x" = "Aborting..."))
     }
   }
 
@@ -62,7 +62,9 @@ apikey_store <- function(key_name, key, password = NULL, overwrite = FALSE) {
   error = function(e) {
     suppressWarnings(rm(key_obj, salt, password))
     gc(verbose = FALSE)
-    stop("Failure while deriving encryption key from the password: ", e$message)
+    cli::cli_abort(c("Failure deriving encryption key from the password.",
+                     "Original error message: ",
+                     e$message))
   })
   rm(password)
 
@@ -71,7 +73,9 @@ apikey_store <- function(key_name, key, password = NULL, overwrite = FALSE) {
   }, error = function(e) {
     suppressWarnings(rm(key_obj, salt, db_key))
     gc(verbose = FALSE)
-    stop("Failure while encrypting the keys: ", e$message)
+    cli::cli_abort(c("Failure encrypting the key.",
+                     "Original error message: ",
+                     e$message))
   })
 
 
@@ -103,14 +107,16 @@ apikey_store <- function(key_name, key, password = NULL, overwrite = FALSE) {
     error = function (e) {
       suppressWarnings(rm(salt, key_obj_enc))
       gc(verbose = FALSE)
-      stop("Failure while saving the file: ", e$message)
+      cli::cli_abort(c("Failure saving the file.",
+                       "Original error message: ",
+                       e$message))
     })
 
     Sys.chmod(key_path, "0700")
     Sys.chmod(key_filename, "600")
 
   } else {
-    message("Canceled by user request on existing file. Aborting...")
+    cli::cli_abort(c("Cancelled by user.", "x" = "Aborting..."))
   }
 
 }
