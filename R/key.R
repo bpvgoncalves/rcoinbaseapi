@@ -143,23 +143,37 @@ apikey_read <- function(password = NULL) {
   key_filename <- file.path(key_path, "api.key")
 
   if (!file.exists(key_filename)) {
-    safe_stop("No stored API key found at the expected location.")
+    rm(password)
+    gc(verbose = FALSE)
+    cli::cli_abort(c("No API key found at the expected location.", "x" = "Aborting..."))
   }
 
   tryCatch({
     key_bin <- readBin(key_filename, what = "raw", n = file.info(key_filename)$size)
-  }, error = function(e) {
-    stop("Failed to read stored key file: ", e$message)
+  },
+  error = function(e) {
+    suppressWarnings(rm(password))
+    gc(verbose = FALSE)
+    cli::cli_abort(c("Failure reading the stored key file.",
+                     "Original error message: ",
+                     e$message))
   })
 
   tryCatch({
     key_data <- unserialize(key_bin)
   }, error = function(e) {
-    safe_stop("Failed to parse stored key file. Possibly corrupted or incompatible format.")
+    suppressWarnings(rm(password))
+    gc(verbose = FALSE)
+    cli::cli_abort(c("Failed to parse stored key file.",
+                     "i" = "Possibly corrupted or incompatible format.",
+                     "Original error message: ",
+                     e$message))
   })
 
   if (!all(c("version", "salt", "encrypted_key") %in% names(key_data))) {
-    safe_stop("Invalid key file format.")
+    suppressWarnings(rm(password, key_data))
+    gc(verbose = FALSE)
+    cli::cli_abort(c("Invalid key file format.", "x" = "Aborting..."))
   }
 
   # Prompt for password if not provided
@@ -168,10 +182,14 @@ apikey_read <- function(password = NULL) {
       pass_prompt <- "Enter the password to decrypt your API key: "
       password <- openssl::askpass(pass_prompt)
       if (is.null(password)) {
-        safe_stop("Password entry canceled by user. Aborting.")
+        suppressWarnings(rm(key_data))
+        cli::cli_abort("Cancelled by user.",
+                       "x" = "Aborting.")
       }
     } else {
-      safe_stop("Password must be provided in non-interactive sessions.")
+      rm(key_data)
+      cli::cli_abort("Password must be provided in non-interactive sessions.",
+                     "x" = "Aborting.")
     }
   }
 
@@ -179,14 +197,22 @@ apikey_read <- function(password = NULL) {
   tryCatch({
     db_key <- openssl::bcrypt_pbkdf(password, key_data$salt, 64L, 32L)
   }, error = function(e) {
-    stop("Failed to derive decryption key: ", e$message)
+    suppressWarnings(rm(password, key_data))
+    gc(verbose = FALSE)
+    cli::cli_abort(c("Failure deriving decryption key from the password.",
+                     "Original error message: ",
+                     e$message))
   })
   suppressWarnings(rm(password))
 
   tryCatch({
     result <- unserialize(openssl::aes_gcm_decrypt(key_data$encrypted_key, db_key))
   }, error = function(e) {
-    stop("Failed to decrypt API key. Possibly wrong password or corrupted file: ", e$message)
+    suppressWarnings(rm(key_data, db_key))
+    cli::cli_abort(c("Failed to decrypt API key.",
+                     "i" = "Possibly wrong password or corrupted file.",
+                     "Original error message: ",
+                     e$message))
   })
 
   # Cleanup
