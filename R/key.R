@@ -81,7 +81,7 @@ apikey_store <- function(key_name, key, password = NULL, overwrite = FALSE) {
   rm(key_obj, db_key)
 
 
-  key_path <- rappdirs::user_config_dir("coinbaseapi")
+  key_path <- rappdirs::user_config_dir(utils::packageName())
   key_filename <- file.path(key_path, "api.key")
   proceed <- TRUE
   if (file.exists(key_filename)) {
@@ -146,7 +146,7 @@ apikey_store <- function(key_name, key, password = NULL, overwrite = FALSE) {
 #'
 apikey_read <- function(password = NULL) {
 
-  key_path <- rappdirs::user_config_dir("coinbaseapi")
+  key_path <- rappdirs::user_config_dir(utils::packageName())
   key_filename <- file.path(key_path, "api.key")
 
   if (!file.exists(key_filename)) {

@@ -1,0 +1,31 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# rcoinbaseapi
+
+<!-- badges: start -->
+
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+<!-- badges: end -->
+
+The goal of `rcoinbaseapi` is to provide an interface between R and the
+Coinbase API.
+
+## Installation
+
+Current development version can be installed from Github via the
+`devtools` package.
+
+``` r
+# devtools::install_github("bpvgoncalves/rcoinbaseapi")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+``` r
+# library(rcoinbaseapi)
+##TODO: basic example code
+```
