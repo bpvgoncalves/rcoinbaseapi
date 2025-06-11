@@ -23,6 +23,7 @@ apikey_store <- function(key_name, key, password = NULL, overwrite = FALSE) {
   key_obj <- serialize(list(name = key_name,
                             key = key),
                        NULL)
+  rm(key)
 
   salt <- openssl::rand_bytes(16)
   if (is.null(password)) {
@@ -77,6 +78,7 @@ apikey_store <- function(key_name, key, password = NULL, overwrite = FALSE) {
                      "Original error message: ",
                      e$message))
   })
+  rm(key_obj, db_key)
 
 
   key_path <- rappdirs::user_config_dir("coinbaseapi")
@@ -116,11 +118,16 @@ apikey_store <- function(key_name, key, password = NULL, overwrite = FALSE) {
     Sys.chmod(key_filename, "600")
 
   } else {
+    suppressWarnings(rm(salt, key_obj_enc))
+    gc(verbose = FALSE)
     cli::cli_abort(c("Cancelled by user.", "x" = "Aborting..."))
   }
 
-}
+  suppressWarnings(rm(salt, key_obj_enc))
+  gc(verbose = FALSE)
 
+  return(invisible(key_filename))
+}
 
 
 #' API Key - Read
@@ -209,6 +216,7 @@ apikey_read <- function(password = NULL) {
     result <- unserialize(openssl::aes_gcm_decrypt(key_data$encrypted_key, db_key))
   }, error = function(e) {
     suppressWarnings(rm(key_data, db_key))
+    gc(verbose = FALSE)
     cli::cli_abort(c("Failed to decrypt API key.",
                      "i" = "Possibly wrong password or corrupted file.",
                      "Original error message: ",
