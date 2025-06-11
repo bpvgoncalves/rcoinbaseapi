@@ -3,3 +3,4 @@
 ^coinbaseapi\.Rproj$
 ^LICENSE\.md$
 ^README\.Rmd$
+^.lintr

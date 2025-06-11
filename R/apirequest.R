@@ -21,7 +21,7 @@ apirequest <- function(method = "GET", endpoint = NULL, need_auth = TRUE) {
 
   resp <- httr2::req_perform(req)
 
-  return(resp)
+  invisible(resp)
 }
 
 
@@ -31,7 +31,7 @@ apirequest <- function(method = "GET", endpoint = NULL, need_auth = TRUE) {
 #'
 #' @returns The httr2 request received as parameter with an authorization header
 #' @export
-apirequest_authorize = function(req) {
+apirequest_authorize <- function(req) {
 
   url <- httr2::url_parse(req$url)
   uri <- paste(req$method, paste0(url$hostname, url$path))
@@ -47,5 +47,5 @@ apirequest_authorize = function(req) {
   token <- httr2::jwt_encode_sig(payload, key_mem_store$key, header = head)
 
   req <- httr2::req_auth_bearer_token(req, token)
-  return(req)
+  invisible(req)
 }

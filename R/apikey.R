@@ -108,7 +108,7 @@ apikey_store <- function(key_name, key, password = NULL, overwrite = FALSE) {
                          NULL),
                key_filename)
     },
-    error = function (e) {
+    error = function(e) {
       suppressWarnings(rm(salt, key_obj_enc))
       gc(verbose = FALSE)
       cli::cli_abort(c("Failure saving the file.",
