@@ -13,10 +13,12 @@
 #' @export
 #'
 #' @examples
-#'
+#' \dontrun{
+#' # WARNING: running this example may result in a previously stored key to be overwritten.
 #' apikey_store("my_key_name",
-#'              "my_secret_api_key",
+#'              openssl::ec_keygen(),
 #'              "a_very_strong_password_that_nobody_will_ever_find")
+#' }
 #'
 apikey_store <- function(key_name, key, password = NULL, overwrite = FALSE) {
 
