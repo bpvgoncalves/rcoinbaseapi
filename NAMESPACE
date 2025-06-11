@@ -2,4 +2,5 @@
 
 export(apikey_read)
 export(apikey_store)
-export(request_authorize)
+export(apirequest)
+export(apirequest_authorize)
