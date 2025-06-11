@@ -129,7 +129,7 @@ apikey_store <- function(key_name, key, password = NULL, overwrite = FALSE) {
 #'
 #' @param password String. The password used to encrypt the key.
 #'
-#' @returns A list with elements `name` and `key`, or stops with an error on failure.
+#' @returns Stores key information in memory and returns TRUE if successful.
 #' @export
 #'
 #' @examples
@@ -215,10 +215,18 @@ apikey_read <- function(password = NULL) {
                      e$message))
   })
 
-  # Cleanup
-  suppressWarnings(rm(db_key, key_bin, key_data))
-  gc(verbose = FALSE)
-  class(result) <- c("api_key", class(result))
+  if (!exists("key_mem_store", mode = "environment")) {
+    suppressWarnings(rm(key_data, db_key, result))
+    gc(verbose = FALSE)
+    cli::cli_abort(c("Unable to store key information in memory.",
+                     "x" = "Aborting."))
+  }
+  assign("name", result$name, envir = key_mem_store)
+  assign("key", openssl::read_key(result$key), envir = key_mem_store)
 
-  return(result)
+  # Cleanup
+  suppressWarnings(rm(db_key, key_bin, key_data, result))
+  gc(verbose = FALSE)
+
+  return(invisible(TRUE))
 }

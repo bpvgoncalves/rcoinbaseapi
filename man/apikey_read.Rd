@@ -10,7 +10,7 @@ apikey_read(password = NULL)
 \item{password}{String. The password used to encrypt the key.}
 }
 \value{
-A list with elements \code{name} and \code{key}, or stops with an error on failure.
+Stores key information in memory and returns TRUE if successful.
 }
 \description{
 Reads and decrypts a previously stored API key.

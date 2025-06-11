@@ -2,3 +2,4 @@
 
 export(apikey_read)
 export(apikey_store)
+export(request_authorize)
