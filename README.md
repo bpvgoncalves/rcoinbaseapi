@@ -6,7 +6,10 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)  
+[![R-CMD-check](https://github.com/bpvgoncalves/rcoinbaseapi/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/bpvgoncalves/rcoinbaseapi/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/bpvgoncalves/rcoinbaseapi/graph/badge.svg)](https://app.codecov.io/gh/bpvgoncalves/rcoinbaseapi)
 <!-- badges: end -->
 
 The goal of `rcoinbaseapi` is to provide an interface between R and the
