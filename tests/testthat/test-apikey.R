@@ -117,6 +117,19 @@ test_that("Key reading fails if key file is missing required fields", {
 })
 
 
+test_that("Key reading fails if memory store not available", {
+  local_mocked_bindings(user_config_dir = function(x) tempdir(), .package = "rappdirs")
+
+  path <- apikey_store("name", openssl::ec_keygen(), password = "pass")
+  on.exit(unlink(path, force = TRUE), add = TRUE)
+
+  # Simulate missing target environment
+  local_mocked_bindings(exists = function(x, where, envir, frame, mode, inherits) FALSE,
+                        .package = "base")
+  expect_error(apikey_read("pass"), "Unable to store key information")
+})
+
+
 test_that("Interactive password prompt success path works when writing file", {
   local_mocked_bindings(user_config_dir = function(x) tempdir(), .package = "rappdirs")
 
