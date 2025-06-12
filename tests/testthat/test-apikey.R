@@ -14,8 +14,8 @@ test_that("API key can be stored and read successfully", {
   result <- apikey_read(password)
 
   expect_equal(result, TRUE)
-  expect_equal(key_mem_store$name, key_name)
-  expect_equal(key_mem_store$key, key_value)
+  expect_equal(.rcoinbaseapi_key_mem_store$name, key_name)
+  expect_equal(.rcoinbaseapi_key_mem_store$key, key_value)
 })
 
 
@@ -61,7 +61,7 @@ test_that("Storing twice without overwrite in non-interactive session does not o
   expect_error(apikey_store(key_name, key_value_2, password, overwrite = FALSE))
 
   apikey_read(password)
-  expect_equal(key_mem_store$key, key_value_1)
+  expect_equal(.rcoinbaseapi_key_mem_store$key, key_value_1)
 })
 
 
@@ -80,7 +80,7 @@ test_that("Storing twice with overwrite in non-interactive session overwrites fi
   apikey_store(key_name, key_value_2, password, overwrite = TRUE)
 
   apikey_read(password)
-  expect_equal(key_mem_store$key, key_value_2)
+  expect_equal(.rcoinbaseapi_key_mem_store$key, key_value_2)
 })
 
 
@@ -145,8 +145,8 @@ test_that("Interactive password prompt success path works when writing file", {
 
   result <- apikey_read("match")
   expect_equal(result, TRUE)
-  expect_equal(key_mem_store$name, "name")
-  expect_equal(key_mem_store$key, key)
+  expect_equal(.rcoinbaseapi_key_mem_store$name, "name")
+  expect_equal(.rcoinbaseapi_key_mem_store$key, key)
 })
 
 
@@ -221,8 +221,8 @@ test_that("Interactive password prompt success path works when reading file", {
 
   result <- apikey_read()
   expect_equal(result, TRUE)
-  expect_equal(key_mem_store$name, "name")
-  expect_equal(key_mem_store$key, key)
+  expect_equal(.rcoinbaseapi_key_mem_store$name, "name")
+  expect_equal(.rcoinbaseapi_key_mem_store$key, key)
 })
 
 

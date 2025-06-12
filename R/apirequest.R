@@ -37,14 +37,14 @@ apirequest_authorize <- function(req) {
   uri <- paste(req$method, paste0(url$hostname, url$path))
 
   payload <- httr2::jwt_claim(iss = "cdp",
-                              sub = key_mem_store$name,
+                              sub = .rcoinbaseapi_key_mem_store$name,
                               nbf = as.integer(Sys.time()),
                               exp = as.integer(Sys.time()) + 120L,
                               uri = uri)
 
-  head <- list(kid = key_mem_store$name,
+  head <- list(kid = .rcoinbaseapi_key_mem_store$name,
                nonce = paste0(as.character(openssl::rand_bytes(32)), collapse = ""))
-  token <- httr2::jwt_encode_sig(payload, key_mem_store$key, header = head)
+  token <- httr2::jwt_encode_sig(payload, .rcoinbaseapi_key_mem_store$key, header = head)
 
   req <- httr2::req_auth_bearer_token(req, token)
   invisible(req)

@@ -225,14 +225,14 @@ apikey_read <- function(password = NULL) {
                      e$message))
   })
 
-  if (!exists("key_mem_store", mode = "environment")) {
+  if (!exists(".rcoinbaseapi_key_mem_store", mode = "environment")) {
     suppressWarnings(rm(key_data, db_key, result))
     gc(verbose = FALSE)
     cli::cli_abort(c("Unable to store key information in memory.",
                      "x" = "Aborting."))
   }
-  assign("name", result$name, envir = key_mem_store)
-  assign("key", openssl::read_key(result$key), envir = key_mem_store)
+  assign("name", result$name, envir = .rcoinbaseapi_key_mem_store)
+  assign("key", openssl::read_key(result$key), envir = .rcoinbaseapi_key_mem_store)
 
   # Cleanup
   suppressWarnings(rm(db_key, key_bin, key_data, result))

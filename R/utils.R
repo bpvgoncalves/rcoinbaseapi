@@ -2,4 +2,4 @@
 interactive <- NULL
 
 #'
-key_mem_store <- new.env()
+.rcoinbaseapi_key_mem_store <- new.env()
