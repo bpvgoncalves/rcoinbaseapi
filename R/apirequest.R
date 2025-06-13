@@ -36,16 +36,31 @@ apirequest_authorize <- function(req) {
   url <- httr2::url_parse(req$url)
   uri <- paste(req$method, paste0(url$hostname, url$path))
 
-  payload <- httr2::jwt_claim(iss = "cdp",
-                              sub = .rcoinbaseapi_key_mem_store$name,
-                              nbf = as.integer(Sys.time()),
-                              exp = as.integer(Sys.time()) + 120L,
-                              uri = uri)
+  if (!exists(".rcoinbaseapi_key_mem_store", mode = "environment")) {
 
-  head <- list(kid = .rcoinbaseapi_key_mem_store$name,
-               nonce = paste0(as.character(openssl::rand_bytes(32)), collapse = ""))
-  token <- httr2::jwt_encode_sig(payload, .rcoinbaseapi_key_mem_store$key, header = head)
+    cli::cli_abort(c("Cannot find in-memory key vault.",
+                     "x" = "Aborting."))
 
-  req <- httr2::req_auth_bearer_token(req, token)
+  } else if (!all(c("name", "key") %in% ls(envir = .rcoinbaseapi_key_mem_store))) {
+
+    cli::cli_abort(c("Key information not loaded.",
+                     "i" = "Try to run {.fun rcoinbaseapi::apikey_read} to solve this problem.",
+                     "x" = "Aborting."))
+
+  } else {
+
+    payload <- httr2::jwt_claim(iss = "cdp",
+                                sub = .rcoinbaseapi_key_mem_store$name,
+                                nbf = as.integer(Sys.time()),
+                                exp = as.integer(Sys.time()) + 120L,
+                                uri = uri)
+
+    head <- list(kid = .rcoinbaseapi_key_mem_store$name,
+                 nonce = paste0(as.character(openssl::rand_bytes(32)), collapse = ""))
+    token <- httr2::jwt_encode_sig(payload, .rcoinbaseapi_key_mem_store$key, header = head)
+
+    req <- httr2::req_auth_bearer_token(req, token)
+  }
+
   invisible(req)
 }
