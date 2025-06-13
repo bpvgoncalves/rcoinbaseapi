@@ -1,0 +1,10 @@
+{
+    "portfolios": [
+        {
+            "name": "Default",
+            "uuid": "00000000-xxxx-yyyy-zzzz-000000000000",
+            "type": "DEFAULT",
+            "deleted": false
+        }
+    ]
+}
