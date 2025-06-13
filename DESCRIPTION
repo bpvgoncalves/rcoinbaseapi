@@ -12,6 +12,7 @@ RoxygenNote: 7.3.2
 Imports: 
     cli,
     httr2,
+    jose,
     later,
     openssl,
     rappdirs

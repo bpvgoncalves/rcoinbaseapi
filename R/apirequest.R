@@ -49,15 +49,15 @@ apirequest_authorize <- function(req) {
 
   } else {
 
-    payload <- httr2::jwt_claim(iss = "cdp",
-                                sub = .rcoinbaseapi_key_mem_store$name,
-                                nbf = as.integer(Sys.time()),
-                                exp = as.integer(Sys.time()) + 120L,
-                                uri = uri)
+    payload <- jose::jwt_claim(iss = "cdp",
+                               sub = .rcoinbaseapi_key_mem_store$name,
+                               nbf = as.integer(Sys.time()),
+                               exp = as.integer(Sys.time()) + 120L,
+                               uri = uri)
 
     head <- list(kid = .rcoinbaseapi_key_mem_store$name,
                  nonce = paste0(as.character(openssl::rand_bytes(32)), collapse = ""))
-    token <- httr2::jwt_encode_sig(payload, .rcoinbaseapi_key_mem_store$key, header = head)
+    token <- jose::jwt_encode_sig(payload, .rcoinbaseapi_key_mem_store$key, header = head)
 
     req <- httr2::req_auth_bearer_token(req, token)
   }
