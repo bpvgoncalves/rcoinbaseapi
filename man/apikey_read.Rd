@@ -4,10 +4,13 @@
 \alias{apikey_read}
 \title{API Key - Read}
 \usage{
-apikey_read(password = NULL)
+apikey_read(password = NULL, timeout = 60L)
 }
 \arguments{
 \item{password}{String. The password used to encrypt the key.}
+
+\item{timeout}{Integer (default = 60s). Time, in seconds, to keep the keys loaded in memory. If
+0 (zero) is provided this protection will not be active.}
 }
 \value{
 Stores key information in memory and returns TRUE if successful.

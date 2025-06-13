@@ -137,6 +137,8 @@ apikey_store <- function(key_name, key, password = NULL, overwrite = FALSE) {
 #' Reads and decrypts a previously stored API key.
 #'
 #' @param password String. The password used to encrypt the key.
+#' @param timeout  Integer (default = 60s). Time, in seconds, to keep the keys loaded in memory. If
+#' 0 (zero) is provided this protection will not be active.
 #'
 #' @returns Stores key information in memory and returns TRUE if successful.
 #' @export
@@ -146,7 +148,7 @@ apikey_store <- function(key_name, key, password = NULL, overwrite = FALSE) {
 #' apikey_read("a_very_strong_password_that_nobody_will_ever_find")
 #' }
 #'
-apikey_read <- function(password = NULL) {
+apikey_read <- function(password = NULL, timeout = 60L) {
 
   key_path <- rappdirs::user_config_dir(utils::packageName())
   key_filename <- file.path(key_path, "api.key")
@@ -233,10 +235,36 @@ apikey_read <- function(password = NULL) {
   }
   assign("name", result$name, envir = .rcoinbaseapi_key_mem_store)
   assign("key", openssl::read_key(result$key), envir = .rcoinbaseapi_key_mem_store)
+  if (timeout > 0) {
+    later::later(apikey_mem_clean,
+                 timeout)
+  }
+
 
   # Cleanup
   suppressWarnings(rm(db_key, key_bin, key_data, result))
   gc(verbose = FALSE)
 
   return(invisible(TRUE))
+}
+
+
+#' API Key - Clean Memory
+#'
+#' Clean API keys stored in memory.
+#'
+#' @returns TRUE if no errors happen.
+#' @export
+#'
+#' @examples
+#' apikey_mem_clean()
+apikey_mem_clean <- function() {
+
+  if (exists(".rcoinbaseapi_key_mem_store", mode = "environment")) {
+    try(rm(ls(envir = .rcoinbaseapi_key_mem_store)),
+        silent = TRUE)
+    gc(verbose = FALSE)
+    cli::cli_inform(c("i" = "API key erased from memory."))
+  }
+  invisible(TRUE)
 }

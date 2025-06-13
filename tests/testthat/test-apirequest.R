@@ -39,7 +39,7 @@ with_mock_api({
 
     local_mocked_bindings(all = function(...) FALSE, .package = "base")
     expect_error(resp <- apirequest("GET", "api/v3/brokerage/portfolios", TRUE),
-                 "Key information not loaded")
+                 "Signing key information not loaded or already expired")
 
   })
 })

@@ -43,7 +43,7 @@ apirequest_authorize <- function(req) {
 
   } else if (!all(c("name", "key") %in% ls(envir = .rcoinbaseapi_key_mem_store))) {
 
-    cli::cli_abort(c("Key information not loaded.",
+    cli::cli_abort(c("Signing key information not loaded or already expired.",
                      "i" = "Try to run {.fun rcoinbaseapi::apikey_read} to solve this problem.",
                      "x" = "Aborting."))
 
