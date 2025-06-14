@@ -261,7 +261,8 @@ apikey_read <- function(password = NULL, timeout = 60L) {
 apikey_mem_clean <- function() {
 
   if (exists(".rcoinbaseapi_key_mem_store", mode = "environment")) {
-    try(rm(ls(envir = .rcoinbaseapi_key_mem_store)),
+    try(rm(list = ls(.rcoinbaseapi_key_mem_store),
+           envir = .rcoinbaseapi_key_mem_store),
         silent = TRUE)
     gc(verbose = FALSE)
     cli::cli_inform(c("i" = "API key erased from memory."))

@@ -300,3 +300,33 @@ test_that("Fails gracefully on readBin() error", {
   expect_error(apikey_read("pw"),
                "Failure reading the stored key file")
 })
+
+
+test_that("Key cleanup works", {
+
+  local_mocked_bindings(user_config_dir = function(x) tempdir(), .package = "rappdirs")
+
+  key <- openssl::ec_keygen()
+  path <- apikey_store("foo", key, "pw", TRUE)
+  on.exit(unlink(path, force = TRUE), add = TRUE)
+
+  expect_true(apikey_read("pw", 4L))
+  expect_equal(.rcoinbaseapi_key_mem_store$name, "foo")
+  expect_equal(.rcoinbaseapi_key_mem_store$key, key)
+
+  expect_message({
+    while (later::next_op_secs() >= 0) {
+      expect_lte(later::next_op_secs(), 4L)
+      Sys.sleep(1)
+    }
+  later::run_now()
+  Sys.sleep(0.5)
+  },
+  "API key erased")
+
+  expect_true(exists(".rcoinbaseapi_key_mem_store", mode = "environment"))
+  expect_length(ls(.rcoinbaseapi_key_mem_store), 0L)
+  expect_null(.rcoinbaseapi_key_mem_store$name)
+  expect_null(.rcoinbaseapi_key_mem_store$key)
+
+})
