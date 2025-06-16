@@ -4,7 +4,13 @@
 \alias{apikey_store}
 \title{API Key - Store}
 \usage{
-apikey_store(key_name, key, password = NULL, overwrite = FALSE)
+apikey_store(
+  key_name,
+  key,
+  password = NULL,
+  overwrite = FALSE,
+  key_path = rappdirs::user_config_dir(utils::packageName())
+)
 }
 \arguments{
 \item{key_name}{String. The key name.}
@@ -15,6 +21,9 @@ apikey_store(key_name, key, password = NULL, overwrite = FALSE)
 
 \item{overwrite}{Boolean. What to do if a previous key file is detected and function is called in
 non-interactive session.}
+
+\item{key_path}{String. Path where to store the key file. By default it will pick a directory
+on user's configuration folder.}
 }
 \value{
 Silently, the key file path if successful.

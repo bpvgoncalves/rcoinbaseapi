@@ -8,6 +8,8 @@
 #' @param password  String. A password to encrypt the key for storage.
 #' @param overwrite Boolean. What to do if a previous key file is detected and function is called in
 #'                  non-interactive session.
+#' @param key_path  String. Path where to store the key file. By default it will pick a directory
+#'                  on user's configuration folder.
 #'
 #' @returns Silently, the key file path if successful.
 #' @export
@@ -20,7 +22,11 @@
 #'              "a_very_strong_password_that_nobody_will_ever_find")
 #' }
 #'
-apikey_store <- function(key_name, key, password = NULL, overwrite = FALSE) {
+apikey_store <- function(key_name,
+                         key,
+                         password = NULL,
+                         overwrite = FALSE,
+                         key_path = rappdirs::user_config_dir(utils::packageName())) {
 
   key_obj <- serialize(list(name = key_name,
                             key = key),
@@ -83,7 +89,6 @@ apikey_store <- function(key_name, key, password = NULL, overwrite = FALSE) {
   rm(key_obj, db_key)
 
 
-  key_path <- rappdirs::user_config_dir(utils::packageName())
   key_filename <- file.path(key_path, "api.key")
   proceed <- TRUE
   if (file.exists(key_filename)) {
@@ -138,7 +143,9 @@ apikey_store <- function(key_name, key, password = NULL, overwrite = FALSE) {
 #'
 #' @param password String. The password used to encrypt the key.
 #' @param timeout  Integer (default = 60s). Time, in seconds, to keep the keys loaded in memory. If
-#' 0 (zero) is provided this protection will not be active.
+#'                 0 (zero) is provided this protection will not be active.
+#' @param key_path String. Path where to store the key file. By default it will pick a directory
+#'                 on user's configuration folder.
 #'
 #' @returns Stores key information in memory and returns TRUE if successful.
 #' @export
@@ -148,9 +155,10 @@ apikey_store <- function(key_name, key, password = NULL, overwrite = FALSE) {
 #' apikey_read("a_very_strong_password_that_nobody_will_ever_find")
 #' }
 #'
-apikey_read <- function(password = NULL, timeout = 60L) {
+apikey_read <- function(password = NULL,
+                        timeout = 60L,
+                        key_path = rappdirs::user_config_dir(utils::packageName())) {
 
-  key_path <- rappdirs::user_config_dir(utils::packageName())
   key_filename <- file.path(key_path, "api.key")
 
   if (!file.exists(key_filename)) {

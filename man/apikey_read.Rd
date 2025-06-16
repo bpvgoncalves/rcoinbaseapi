@@ -4,13 +4,20 @@
 \alias{apikey_read}
 \title{API Key - Read}
 \usage{
-apikey_read(password = NULL, timeout = 60L)
+apikey_read(
+  password = NULL,
+  timeout = 60L,
+  key_path = rappdirs::user_config_dir(utils::packageName())
+)
 }
 \arguments{
 \item{password}{String. The password used to encrypt the key.}
 
 \item{timeout}{Integer (default = 60s). Time, in seconds, to keep the keys loaded in memory. If
 0 (zero) is provided this protection will not be active.}
+
+\item{key_path}{String. Path where to store the key file. By default it will pick a directory
+on user's configuration folder.}
 }
 \value{
 Stores key information in memory and returns TRUE if successful.
