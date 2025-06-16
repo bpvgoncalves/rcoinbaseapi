@@ -26,11 +26,8 @@ apirequest <- function(method = "GET", endpoint = NULL, need_auth = TRUE) {
 
 
 #' API Request - Request Authorize
-#'
 #' @param req  An httr2 request
-#'
 #' @returns The httr2 request received as parameter with an authorization header
-#' @export
 apirequest_authorize <- function(req) {
 
   url <- httr2::url_parse(req$url)
