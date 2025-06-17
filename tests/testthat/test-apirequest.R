@@ -17,7 +17,8 @@ with_mock_api({
     # We store a fake key to allow it to be read before sending the request, so that the in-memory
     # key store is populated. A real key was used to obtain the response stored (and redacted) on
     # the mock directory.
-    apikey_store("fake_key", openssl::ec_keygen(), "abcd")
+    path <- apikey_store("fake_key", openssl::ec_keygen(), "abcd")
+    on.exit(unlink(path, force = TRUE), add = TRUE)
     apikey_read("abcd")
     resp <- apirequest("GET", "api/v3/brokerage/portfolios", TRUE)
 
@@ -42,4 +43,12 @@ with_mock_api({
                  "Signing key information not loaded or already expired")
 
   })
+
+  test_that("Fails on no internet", {
+    without_internet({
+      expect_error(apirequest("GET", "v2/time", FALSE),
+                   "Failure executing the request")
+    })
+  })
 })
+

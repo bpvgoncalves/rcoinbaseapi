@@ -14,12 +14,18 @@ apirequest <- function(method = "GET", endpoint = NULL, need_auth = TRUE) {
   req <- httr2::request(base_url)
   req <- httr2::req_method(req, method)
   req <- httr2::req_url_path(req, endpoint)
-
+  req <- httr2::req_headers(req, "content-type" = "application/json")
   if (need_auth) {
     req <- apirequest_authorize(req)
   }
 
-  resp <- httr2::req_perform(req)
+  tryCatch({
+    resp <- httr2::req_perform(req)
+  },
+  error = function(e) {
+    cli::cli_abort(c("Failure executing the request.",
+                      e$message))
+  })
 
   invisible(resp)
 }
