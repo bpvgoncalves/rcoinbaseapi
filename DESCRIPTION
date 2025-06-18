@@ -13,6 +13,7 @@ Imports:
     cli,
     httr2,
     jose,
+    jsonlite,
     later,
     openssl,
     rappdirs

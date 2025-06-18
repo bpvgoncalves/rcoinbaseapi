@@ -4,14 +4,27 @@
 \alias{apirequest}
 \title{API Request - Request}
 \usage{
-apirequest(method = "GET", endpoint = NULL, need_auth = TRUE)
+apirequest(
+  method = "GET",
+  endpoint = NULL,
+  path_params = NULL,
+  query_params = NULL,
+  body_params = NULL,
+  need_auth = TRUE
+)
 }
 \arguments{
-\item{method}{HTTP method to use. Defaults to GET}
+\item{method}{String. The HTTP method to use (GET, POST, PUT, DELETE, ...). Default: GET.}
 
-\item{endpoint}{The endpoint to send the request to}
+\item{endpoint}{String. The endpoint to send the request to.}
 
-\item{need_auth}{Does this request need authorization?}
+\item{path_params}{String. Parameters to be added to the request path. Default: NULL.}
+
+\item{query_params}{Named list. Parameters to be added to the request query. Default: NULL.}
+
+\item{body_params}{Named list. Parameters to be sent as the request body. Default: NULL.}
+
+\item{need_auth}{Boolean. Does this request need authorization? Default: TRUE}
 }
 \value{
 the API response

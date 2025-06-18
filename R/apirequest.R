@@ -1,24 +1,53 @@
 
 #' API Request - Request
 #'
-#' @param method     HTTP method to use. Defaults to GET
-#' @param endpoint   The endpoint to send the request to
-#' @param need_auth  Does this request need authorization?
+#' @param method       String. The HTTP method to use (GET, POST, PUT, DELETE, ...). Default: GET.
+#' @param endpoint     String. The endpoint to send the request to.
+#' @param path_params  String. Parameters to be added to the request path. Default: NULL.
+#' @param query_params Named list. Parameters to be added to the request query. Default: NULL.
+#' @param body_params  Named list. Parameters to be sent as the request body. Default: NULL.
+#' @param need_auth    Boolean. Does this request need authorization? Default: TRUE
 #'
 #' @returns the API response
 #' @export
-apirequest <- function(method = "GET", endpoint = NULL, need_auth = TRUE) {
+apirequest <- function(method = "GET",
+                       endpoint = NULL,
+                       path_params = NULL,
+                       query_params = NULL,
+                       body_params = NULL,
+                       need_auth = TRUE) {
 
   base_url <- "https://api.coinbase.com"
 
+  # Create base request
   req <- httr2::request(base_url)
   req <- httr2::req_method(req, method)
   req <- httr2::req_url_path(req, endpoint)
-  req <- httr2::req_headers(req, "content-type" = "application/json")
+
+  # Add parameters, if available
+  if (!is.null(path_params)) {
+    req <- httr2::req_url_path_append(req, path_params)
+  }
+  if (!is.null(query_params)) {
+    param <- list(.req = req)
+    param <- c(param, query_params)
+    req <- do.call(httr2::req_url_query, param)
+  }
+  if (!is.null(body_params)) {
+    req <- httr2::req_body_json(req, jsonlite::toJSON(body_params, auto_unbox = TRUE))
+  }
+
+  # Add some headers
+  req <- httr2::req_headers(req, "Accept" = "application/json")
+  req <- httr2::req_headers(req, "Accept-Encoding" = "gzip, deflate, br, zstd")
+  # req <- httr2::req_headers(req, "Content-Type" = "application/json")
+
+  # Add request authorization if needed
   if (need_auth) {
     req <- apirequest_authorize(req)
   }
 
+  # Perform request
   tryCatch({
     resp <- httr2::req_perform(req)
   },
@@ -26,7 +55,6 @@ apirequest <- function(method = "GET", endpoint = NULL, need_auth = TRUE) {
     cli::cli_abort(c("Failure executing the request.",
                       e$message))
   })
-
   invisible(resp)
 }
 
