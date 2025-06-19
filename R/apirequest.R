@@ -21,30 +21,64 @@ apirequest <- function(method = "GET",
 
   # Create base request
   req <- httr2::request(base_url)
-  req <- httr2::req_method(req, method)
-  req <- httr2::req_url_path(req, endpoint)
+
+  if (!is.null(method) && !is_ugly(method) && method %in% c("GET", "POST", "PUT", "DELETE")) {
+    req <- httr2::req_method(req, method)
+  } else {
+    cli::cli_abort(c("Invalid parameter `method`: {method}",
+                     "i" = "Parameter `method` MUST be: 'GET', 'POST', 'PUT' or 'DELETE'."))
+  }
+
+  if (!is.null(endpoint) && !is_ugly(endpoint)) {
+    req <- httr2::req_url_path(req, endpoint)
+  } else {
+    cli::cli_abort("Invalid parameter `endpoint`: {endpoint}")
+  }
 
   # Add parameters, if available
   if (!is.null(path_params)) {
-    req <- httr2::req_url_path_append(req, path_params)
+    if (!is_bad(path_params)) {
+      req <- httr2::req_url_path_append(req, path_params)
+    } else {
+      cli::cli_abort("Invalid parameter `path_params`: {path_params}")
+    }
   }
+
   if (!is.null(query_params)) {
-    param <- list(.req = req)
-    param <- c(param, query_params)
-    req <- do.call(httr2::req_url_query, param)
+    if (!is.list(query_params)) {
+      cli::cli_abort(c("Invalid parameter `query_params`.",
+                       "i" = "Parameter MUST be a list."))
+    }
+    if (any(names(query_params) == "")) {
+      cli::cli_abort(c("Invalid parameter `query_params`.",
+                       "i" = "All items in the list MUST be named."))
+    }
+    req <- do.call(httr2::req_url_query, c(list(.req = req), query_params))
   }
+
   if (!is.null(body_params)) {
+    if (!is.list(body_params)) {
+      cli::cli_abort(c("Invalid parameter `body_params`.",
+                       "i" = "Parameter MUST be a list."))
+    }
+    if (any(names(body_params) == "")) {
+      cli::cli_abort(c("Invalid parameter `body_params`.",
+                       "i" = "All items in the list MUST be named."))
+    }
     req <- httr2::req_body_json(req, jsonlite::toJSON(body_params, auto_unbox = TRUE))
   }
 
   # Add some headers
   req <- httr2::req_headers(req, "Accept" = "application/json")
   req <- httr2::req_headers(req, "Accept-Encoding" = "gzip, deflate, br, zstd")
-  # req <- httr2::req_headers(req, "Content-Type" = "application/json")
 
   # Add request authorization if needed
-  if (need_auth) {
-    req <- apirequest_authorize(req)
+  if (!is.null(need_auth) && !is_ugly(need_auth) && is.logical(need_auth)) {
+    if (need_auth) {
+      req <- apirequest_authorize(req)
+    }
+  } else {
+    cli::cli_abort("Invalid parameter `need_auth`: {need_auth}")
   }
 
   # Perform request
@@ -53,7 +87,7 @@ apirequest <- function(method = "GET",
   },
   error = function(e) {
     cli::cli_abort(c("Failure executing the request.",
-                      e$message))
+                     e$message))
   })
   invisible(resp)
 }
