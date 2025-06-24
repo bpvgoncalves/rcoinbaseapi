@@ -7,6 +7,7 @@
 #' @param query_params Named list. Parameters to be added to the request query. Default: NULL.
 #' @param body_params  Named list. Parameters to be sent as the request body. Default: NULL.
 #' @param need_auth    Boolean. Does this request need authorization? Default: TRUE
+#' @param use_sandbox  Boolean. Use sandbox environment instead of production. Default: FALSE
 #'
 #' @returns the API response
 #' @export
@@ -15,9 +16,18 @@ apirequest <- function(method = "GET",
                        path_params = NULL,
                        query_params = NULL,
                        body_params = NULL,
-                       need_auth = TRUE) {
+                       need_auth = TRUE,
+                       use_sandbox = FALSE) {
 
-  base_url <- "https://api.coinbase.com"
+  if (!is.null(use_sandbox) && !is_ugly(use_sandbox) && is.logical(use_sandbox)) {
+    if (use_sandbox) {
+      base_url <- "https://api-sandbox.coinbase.com"
+    } else {
+      base_url <- "https://api.coinbase.com"
+    }
+  } else {
+    cli::cli_abort("Invalid parameter `use_sandbox`: {use_sandbox}")
+  }
 
   # Create base request
   req <- httr2::request(base_url)

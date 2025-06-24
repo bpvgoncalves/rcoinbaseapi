@@ -10,7 +10,8 @@ apirequest(
   path_params = NULL,
   query_params = NULL,
   body_params = NULL,
-  need_auth = TRUE
+  need_auth = TRUE,
+  use_sandbox = FALSE
 )
 }
 \arguments{
@@ -25,6 +26,8 @@ apirequest(
 \item{body_params}{Named list. Parameters to be sent as the request body. Default: NULL.}
 
 \item{need_auth}{Boolean. Does this request need authorization? Default: TRUE}
+
+\item{use_sandbox}{Boolean. Use sandbox environment instead of production. Default: FALSE}
 }
 \value{
 the API response

@@ -147,3 +147,32 @@ test_that("Request fails on invalid need_auth parameter", {
                "Invalid parameter `need_auth`")
 
 })
+
+
+test_that("Request fails on invalid use_sandbox parameter", {
+
+  expect_error(apirequest("GET", "v2/time", use_sandbox = NULL),
+               "Invalid parameter `use_sandbox`")
+
+  expect_error(apirequest("GET", "v2/time", use_sandbox = NA),
+               "Invalid parameter `use_sandbox`")
+
+  expect_error(apirequest("GET", "v2/time", use_sandbox = "abc"),
+               "Invalid parameter `use_sandbox`")
+
+})
+
+
+test_that("Sandbox API is available", {
+
+  skip_if_offline()
+
+  resp <- apirequest("GET", "api/v3/brokerage/accounts", need_auth = FALSE, use_sandbox = TRUE)
+
+  expect_s3_class(resp, "httr2_response")
+  expect_equal(resp$method, "GET")
+  expect_equal(resp$status_code, 200L)
+  expect_equal(resp$request$url, "https://api-sandbox.coinbase.com/api/v3/brokerage/accounts")
+  expect_equal(resp$url, "https://api-sandbox.coinbase.com/api/v3/brokerage/accounts")
+
+})
