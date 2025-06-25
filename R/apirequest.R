@@ -124,10 +124,12 @@ apirequest_authorize <- function(req) {
 
   } else {
 
+    issue_time <- as.integer(Sys.time())
     payload <- jose::jwt_claim(iss = "cdp",
                                sub = .rcoinbaseapi_key_mem_store$name,
-                               nbf = as.integer(Sys.time()),
-                               exp = as.integer(Sys.time()) + 120L,
+                               iat = issue_time,
+                               nbf = issue_time,
+                               exp = issue_time + 120L,
                                uri = uri)
 
     head <- list(kid = .rcoinbaseapi_key_mem_store$name,
