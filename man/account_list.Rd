@@ -16,16 +16,17 @@ previous call).}
 \item{use_sandbox}{Boolean. If TRUE, uses Coinbase sandbox environment. Default: FALSE.}
 }
 \value{
-A data frame containing account details. The result includes all pages if pagination is required.
+A data frame containing account details. The result includes all pages if pagination is
+required.
 }
 \description{
-List Coinbase Brokerage Accounts: Retrieves a list of brokerage accounts associated with the
-authenticated Coinbase user.
-Automatically handles pagination and returns a combined data frame.
+This function queries the \verb{/api/v3/brokerage/accounts} Coinbase API endpoint.
 }
 \details{
-This function wraps the \verb{/api/v3/brokerage/accounts} Coinbase API endpoint.
 Requires authentication unless \code{use_sandbox = TRUE}.
+
+Retrieves a list of brokerage accounts associated with the authenticated Coinbase user.
+Automatically handles pagination and returns a combined data frame.
 
 Input validation ensures that malformed or malicious values are rejected early. Use of
 this function in production environments should follow best practices for API key management.
