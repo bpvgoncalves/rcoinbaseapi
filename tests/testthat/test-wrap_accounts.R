@@ -1,8 +1,7 @@
+
 test_that("'account_list' wrapper works", {
 
-  skip_if_offline()
-
-  accs <- account_list(use_sandbox = TRUE)
+  with_mock_api(accs <- account_list(use_sandbox = TRUE))
 
   expect_s3_class(accs, "data.frame")
   expect_equal(nrow(accs), 4L)
@@ -24,8 +23,6 @@ test_that("'account_list' wrapper works", {
 
 
 test_that("'account_list' throws error on bad parameters", {
-
-  skip_if_offline()
 
   expect_error(account_list(limit = NA, use_sandbox = TRUE), "Invalid parameter `limit`")
   expect_error(account_list(limit = "abc", use_sandbox = TRUE), "Invalid parameter `limit`")
