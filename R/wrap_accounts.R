@@ -82,3 +82,52 @@ account_list <- function(limit = NULL, cursor = NULL, use_sandbox = FALSE) {
 
   invisible(ret)
 }
+
+
+#' Coinbase API - Accounts - Account Details
+#'
+#'
+#' This function queries the `/api/v3/brokerage/accounts/<acc_uuid>` Coinbase API endpoint.
+#'
+#'
+#' Requires authentication unless `use_sandbox = TRUE`.
+#'
+#' Retrieves details of the selected brokerage account associated with the authenticated Coinbase
+#' user.
+#'
+#' Input validation ensures that malformed or malicious values are rejected early. Use of
+#' this function in production environments should follow best practices for API key management.
+#'
+#' @param account_uuid Character. Desired account UUID.
+#' @param use_sandbox  Boolean. If TRUE, uses Coinbase sandbox environment. Default: FALSE.
+#'
+#' @return A list containing account details.
+#'
+#' @seealso [apirequest()]
+#'
+#' @export
+#' @examples
+#' \dontrun{
+#' # Retrieve list of the brokerage account. Use sandbox mode (no authentication required)
+#' account <- account_list("66f975a6-bb2e-44be-82e9-cd8669e404b0", use_sandbox = TRUE)
+#' }
+account_get <- function(account_uuid = NULL, use_sandbox = FALSE) {
+
+  if (is.null(account_uuid) || is_ugly(account_uuid) || !is_uuid(account_uuid)) {
+    cli::cli_abort("Invalid parameter `account_uuid`: {account_uuid}")
+  }
+
+  if (is.null(use_sandbox) || !is.logical(use_sandbox)) {
+    cli::cli_abort("Invalid parameter `use_sandbox`: {use_sandbox}")
+  }
+
+  resp <- apirequest("GET",
+                     "api/v3/brokerage/accounts",
+                     path_params = account_uuid,
+                     need_auth = !use_sandbox,
+                     use_sandbox = use_sandbox)
+
+  resp_data <- httr2::resp_body_json(resp, simplifyVector = TRUE, flatten = TRUE)[[1]]
+
+  invisible(resp_data)
+}

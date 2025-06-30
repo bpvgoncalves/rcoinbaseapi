@@ -39,3 +39,44 @@ test_that("'account_list' throws error on bad parameters", {
   expect_error(account_list(use_sandbox = c(TRUE, TRUE)), "Invalid parameter `use_sandbox`")
 
 })
+
+
+test_that("'account_get' wrapper works", {
+
+  acc <- account_get("66f975a6-bb2e-44be-82e9-cd8669e404b0", use_sandbox = TRUE)
+
+  expect_true(inherits(acc, "list"))
+  expect_equal(length(acc), 14L)
+  expect_equal(acc$name, "USDC Wallet")
+  expect_equal(acc$currency, "USDC")
+
+})
+
+
+test_that("'account_get' throws error on bad parameters", {
+
+  expect_error(account_get(use_sandbox = TRUE),
+               "Invalid parameter `account_uuid`")
+  expect_error(account_get(12345, use_sandbox = TRUE),
+               "Invalid parameter `account_uuid`")
+  expect_error(account_get("abcd", use_sandbox = TRUE),
+               "Invalid parameter `account_uuid`")
+  expect_error(account_get(c("66f975a6-bb2e-44be-82e9-cd8669e404b0",
+                             "00000000-bbbb-44be-82e9-ffffffffffff"),
+                           use_sandbox = TRUE),
+               "Invalid parameter `account_uuid`")
+  expect_error(account_get("66f975a6-bb2e-44be-82e9-cd8669e404bg", use_sandbox = TRUE),
+               "Invalid parameter `account_uuid`")
+
+  expect_error(account_get("66f975a6-bb2e-44be-82e9-cd8669e404b0", use_sandbox = NULL),
+               "Invalid parameter `use_sandbox`")
+  expect_error(account_get("66f975a6-bb2e-44be-82e9-cd8669e404b0", use_sandbox = NA),
+               "Invalid parameter `use_sandbox`")
+  expect_error(account_get("66f975a6-bb2e-44be-82e9-cd8669e404b0", use_sandbox = 123),
+               "Invalid parameter `use_sandbox`")
+  expect_error(account_get("66f975a6-bb2e-44be-82e9-cd8669e404b0", use_sandbox = "abc"),
+               "Invalid parameter `use_sandbox`")
+  expect_error(account_get("66f975a6-bb2e-44be-82e9-cd8669e404b0", use_sandbox = c(TRUE, TRUE)),
+               "Invalid parameter `use_sandbox`")
+
+})
