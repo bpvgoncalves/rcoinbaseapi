@@ -62,7 +62,7 @@ check_clock_drift <- function(threshold = 30) {
 }
 
 #' @export
-print.rcoinbaseapi_clock_drift <- function (x, ...) {
+print.rcoinbaseapi_clock_drift <- function(x, ...) {
 
   local_dt <- as.POSIXct(x$local, origin = "1970-01-01", tz = "UTC")
   server_dt <- as.POSIXct(x$server, origin = "1970-01-01", tz = "UTC")
