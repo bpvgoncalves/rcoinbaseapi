@@ -17,7 +17,7 @@ is_ugly <- function(x) {
 
 is_uuid <- function(string) {
   string <- toupper(as.character(string))
-  grepl("[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}", string)
+  grepl("[0-9A-F]{8}-[0-9A-F]{4}-[45][0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}", string)
 }
 
 
