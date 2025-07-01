@@ -42,8 +42,8 @@ is_uuid <- function(string) {
 #' @export
 check_clock_drift <- function(threshold = 30) {
 
-  coinbase_time <- server_time()$epoch
-  local_time <- as.integer(Sys.time())
+  coinbase_time <- server_time()$epochMillis / 1000
+  local_time <- as.numeric(Sys.time())
   time_diff <- local_time - coinbase_time
 
   out <- structure(list(local = local_time,
@@ -69,8 +69,8 @@ print.rcoinbaseapi_clock_drift <- function(x, ...) {
 
   cli::cli_h3("Clock Drift")
   cli::cli_inform(c(
-    "{.strong System time:} {format(local_dt, '%Y-%m-%d %H:%M:%S %Z')} (epoch: {x$local})",
-    "{.strong Server time:} {format(server_dt, '%Y-%m-%d %H:%M:%S %Z')} (epoch: {x$server})",
+    "{.strong System time:} {format(local_dt, '%Y-%m-%d %H:%M:%OS3 %Z')} (epoch: {x$local})",
+    "{.strong Server time:} {format(server_dt, '%Y-%m-%d %H:%M:%OS3 %Z')} (epoch: {x$server})",
     "{.strong Time delta:}  {x$time_delta} seconds"
   ))
 

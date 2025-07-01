@@ -8,11 +8,12 @@ server_time()
 }
 \value{
 A list containing:
--\strong{epoch}: Server time as Unix timestamp (seconds since epoch).
 -\strong{iso}: Server time in ISO 8601 format (UTC).
+-\strong{epochSeconds}: Server time as Unix timestamp (seconds since epoch).
+-\strong{epochMillis}: Server time as Unix timestamp (milliseconds since epoch).
 }
 \description{
-Queries the public \verb{/v2/time} endpoint to retrieve the current Coinbase server time.
+Queries the public \verb{/api/v3/brokerage/time} endpoint to get the current Coinbase server time.
 }
 \examples{
 server_time()
