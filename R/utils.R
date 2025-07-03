@@ -21,6 +21,24 @@ is_uuid <- function(string) {
 }
 
 
+#' Validate Choice Argument
+#'
+#' Validates a single-character input against a list of accepted choices.
+#'
+#' @param arg The argument to validate (character scalar).
+#' @param name Name of the argument (used in error messages).
+#' @param choices Character vector of valid options (will be matched case-insensitively).
+#'
+#' @return The validated and uppercased version of the argument.
+#' @noRd
+validate_choice <- function(arg, name, choices) {
+  if (is_ugly(arg) || !(toupper(arg) %in% choices)) {
+    cli::cli_abort(c("x" = "Invalid parameter `{name}`: {arg}",
+                     "i" = "It MUST be one of: {choices}"))
+  }
+  toupper(arg)
+}
+
 
 #' Coinbase API - Utils - Check Time Drift
 #'

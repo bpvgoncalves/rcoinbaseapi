@@ -113,38 +113,29 @@ transaction_summary <- function(product_type = NULL, expiry = NULL, venue = NULL
   q_par <- list()
 
   if (!is.null(product_type)) {
-    acceptable_type <- c("UNKNOWN_PRODUCT_TYPE", "SPOT", "FUTURE")
-    if (!is_ugly(product_type) && toupper(product_type) %in% acceptable_type) {
-      q_par <- c(q_par, product_type = toupper(product_type))
-    } else {
-      cli::cli_abort(c("x" = "Invalid parameter `product_type`: {product_type}",
-                       "i" = "It MUST be one of: {acceptable_type}"))
-    }
+    product_type <- validate_choice(product_type,
+                                    "product_type",
+                                    c("UNKNOWN_PRODUCT_TYPE", "SPOT", "FUTURE"))
+    q_par <- c(q_par, product_type = product_type)
   }
 
   if (!is.null(expiry)) {
-    acceptable_expiry <- c("UNKNOWN_CONTRACT_EXPIRY_TYPE", "EXPIRING", "PERPETUAL")
-    if (!is_ugly(expiry) && toupper(expiry) %in% acceptable_expiry) {
-      if (!is.null(q_par$product_type) && q_par$product_type=="FUTURE") {
-        q_par <- c(q_par, contract_expiry_type = toupper(expiry))
-      } else {
-        cli::cli_inform(c("i" = "Ignoring parameter `expiry`",
-                          "Parameter `expiry` only applicable when `product_type` is 'FUTURE'."))
-      }
+    expiry <- validate_choice(product_type,
+                              "expiry",
+                              c("UNKNOWN_CONTRACT_EXPIRY_TYPE", "EXPIRING", "PERPETUAL"))
+    if (!is.null(q_par$product_type) && q_par$product_type=="FUTURE") {
+      q_par <- c(q_par, contract_expiry_type = expiry)
     } else {
-      cli::cli_abort(c("x" = "Invalid parameter `expiry`: {expiry}",
-                       "i" = "It MUST be one of: {acceptable_expiry}"))
+      cli::cli_inform(c("i" = "Ignoring parameter `expiry`",
+                        "Parameter `expiry` only applicable when `product_type` is 'FUTURE'."))
     }
   }
 
   if (!is.null(venue)) {
-    acceptable_venue <- c("UNKNOWN_VENUE_TYPE", "CBE", "FCM", "INTX")
-    if (!is_ugly(venue) && toupper(venue) %in% acceptable_venue) {
-      q_par <- c(q_par, product_venue = toupper(venue))
-    } else {
-      cli::cli_abort(c("x" = "Invalid parameter `venue`: {venue}",
-                       "i" = "It MUST be one of: {acceptable_venue}"))
-    }
+    venue <- validate_choice(product_type,
+                             "expiry",
+                             c("UNKNOWN_VENUE_TYPE", "CBE", "FCM", "INTX"))
+    q_par <- c(q_par, product_venue = toupper(venue))
   }
 
   resp <- apirequest("GET",
