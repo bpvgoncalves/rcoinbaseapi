@@ -77,7 +77,7 @@ The **v3 API** unifies account management, order placement, and trading under th
 |        | /api/v3/brokerage/products/{prod_id}                 | GET    | Get Product          |                      |
 |        | /api/v3/brokerage/products/{prod_id}/candles         | GET    | Get Product Candles  |                      |
 |        | /api/v3/brokerage/products/{prod_id}/ticker          | GET    | Get Market Trades    |                      |
-|   ⏳   | /api/v3/brokerage/transaction_summary                | GET    | Get Trans. Summary   |                      |
+|   ✅   | /api/v3/brokerage/transaction_summary                | GET    | Get Trans. Summary   | `transaction_summary()`  |
 |        | /api/v3/brokerage/convert/quote                      | POST   | Create Convert Quote |                      |
 |        | /api/v3/brokerage/convert/{trd_id}                   | POST   | Commit Convert Trade |                      |
 |        | /api/v3/brokerage/convert/{trd_id}                   | GET    | Get Convert Trade    |                      |

@@ -82,3 +82,78 @@ transaction_get <- function(account_uuid, transaction_uuid) {
 
   invisible(resp_data)
 }
+
+
+#' Coinbase API - Transactions - Transactions Summary
+#'
+#' Retrieves a summary of user transactions from the
+#' `/api/v3/brokerage/transaction_summary` endpoint. Authentication is required.
+#'
+#' The response includes total trading volume, total fees paid, and maker/taker fee tiers.
+#'
+#' @param product_type Optional. One of `"UNKNOWN_PRODUCT_TYPE"`, `"SPOT"`, or `"FUTURE"`.
+#' @param expiry Optional. One of `"UNKNOWN_CONTRACT_EXPIRY_TYPE"`, `"EXPIRING"`, or `"PERPETUAL"`.
+#'   Only applicable when `product_type = "FUTURE"`.
+#' @param venue Optional. One of `"UNKNOWN_VENUE_TYPE"`, `"CBE"`, `"FCM"`, or `"INTX"`.
+#'
+#' @returns A named list containing at least the following:
+#' - **total_volume**: Total volume across assets, denoted in USD.
+#' - **total_fees**: Total fees across assets, denoted in USD.
+#' - **fee_tier**: A list with the description of maker and taker rates across all products.
+#'
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' # Retrieve list of transactions for the account
+#' tx_summary <- transaction_summary()
+#' }
+transaction_summary <- function(product_type = NULL, expiry = NULL, venue = NULL) {
+
+  q_par <- list()
+
+  if (!is.null(product_type)) {
+    acceptable_type <- c("UNKNOWN_PRODUCT_TYPE", "SPOT", "FUTURE")
+    if (!is_ugly(product_type) && toupper(product_type) %in% acceptable_type) {
+      q_par <- c(q_par, product_type = toupper(product_type))
+    } else {
+      cli::cli_abort(c("x" = "Invalid parameter `product_type`: {product_type}",
+                       "i" = "It MUST be one of: {acceptable_type}"))
+    }
+  }
+
+  if (!is.null(expiry)) {
+    acceptable_expiry <- c("UNKNOWN_CONTRACT_EXPIRY_TYPE", "EXPIRING", "PERPETUAL")
+    if (!is_ugly(expiry) && toupper(expiry) %in% acceptable_expiry) {
+      if (!is.null(q_par$product_type) && q_par$product_type=="FUTURE") {
+        q_par <- c(q_par, contract_expiry_type = toupper(expiry))
+      } else {
+        cli::cli_inform(c("i" = "Ignoring parameter `expiry`",
+                          "Parameter `expiry` only applicable when `product_type` is 'FUTURE'."))
+      }
+    } else {
+      cli::cli_abort(c("x" = "Invalid parameter `expiry`: {expiry}",
+                       "i" = "It MUST be one of: {acceptable_expiry}"))
+    }
+  }
+
+  if (!is.null(venue)) {
+    acceptable_venue <- c("UNKNOWN_VENUE_TYPE", "CBE", "FCM", "INTX")
+    if (!is_ugly(venue) && toupper(venue) %in% acceptable_venue) {
+      q_par <- c(q_par, product_venue = toupper(venue))
+    } else {
+      cli::cli_abort(c("x" = "Invalid parameter `venue`: {venue}",
+                       "i" = "It MUST be one of: {acceptable_venue}"))
+    }
+  }
+
+  resp <- apirequest("GET",
+                     "api/v3/brokerage/transaction_summary",
+                     query_params = q_par,
+                     need_auth = TRUE,
+                     use_sandbox = FALSE)
+
+  resp_data <- httr2::resp_body_json(resp, simplifyVector = TRUE, flatten = TRUE)
+
+  invisible(resp_data)
+}
