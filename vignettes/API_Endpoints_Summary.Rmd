@@ -1,0 +1,122 @@
+---
+title: "Coinbase API Endpoint Summary"
+# output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Coinbase API Endpoint Summary}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Overview
+
+This document summarizes all known Coinbase API endpoints and indicates which ones are currently wrapped by the `rcoinbaseapi` package.
+
+**Legend:**
+
+- ✅ Implemented (Wrapper function available)
+- ⏳ Planned or partially implemented
+- ❌ Not yet implemented
+- 🕸️ Deprecated or replaced by newer version
+
+> Even when no wrapper exists, you can still use the `apirequest()` function directly to interact with any supported endpoint.
+
+---
+
+## REST APIs
+### API v2: Coinbase App API Endpoints
+
+The **v2 API** is Coinbase’s older interface for account balances, pricing, and wallet operations. While still live, many endpoints are deprecated in favor of newer v3 APIs.
+
+| Status | Endpoint                                             | Method | Description          | Wrapper Function     |
+|:------:|------------------------------------------------------|:------:|----------------------|----------------------|
+|   🕸   | /v2/accounts                                         | GET    | List Accounts        |                      |
+|   🕸   | /v2/accounts/:acc_id                                 | GET    | Show Account         |                      |
+|   ❌   | /v2/accounts/:acc_id/transactions                    | POST   | Send Money           |                      |
+|   ✅   | /v2/accounts/:acc_id/transactions                    | GET    | List Transactions    | `transaction_list()` |    
+|   ✅   | /v2/accounts/:acc_id/transactions/:tx_id             | GET    | Show Transaction     | `transaction_get()`  |
+|        | /v2/accounts/:acc_id/addresses                       | POST   | Create Address       |                      |
+|        | /v2/accounts/:acc_id/addresses                       | GET    | List Addresses       |                      |
+|        | /v2/accounts/:acc_id/addresses/:add_id               | GET    | Show Address         |                      |
+|        | /v2/accounts/:acc_id/addresses/:add_id/transactions  | GET    | List Transactions    |                      |
+|        | /v2/accounts/:acc_id/deposits                        | POST   | Deposit Funds        |                      |
+|        | /v2/accounts/:acc_id/deposits/:depo_id/commit        | POST   | Commit Deposit       |                      |
+|        | /v2/accounts/:acc_id/deposits                        | GET    | List Deposits        |                      |
+|        | /v2/accounts/:acc_id/deposits/:depo_id               | GET    | Show Deposit         |                      |
+|        | /v2/accounts/:acc_id/withdrawals                     | POST   | Withdraw Funds       |                      |
+|        | /v2/accounts/:acc_id/withdrawals/:withd_id/commit    | POST   | Commit Withdrawal    |                      |
+|        | /v2/accounts/:acc_id/withdrawals                     | GET    | List Withdrawals     |                      |
+|        | /v2/accounts/:acc_id/withdrawals/:withd_id           | GET    | Show Withdrawal      |                      |
+|        | /v2/currencies                                       | GET    | Get Fiat Currencies  |                      |
+|        | /v2/currencies/crypto                                | GET    | Get Cryptocurrencies |                      |
+|        | /v2/exchange-rates                                   | GET    | Get Exchange Rates   |                      |
+|   🕸   | /v2/prices/:pair/buy                                 | GET    | Get Buy Price        |                      |
+|   🕸   | /v2/prices/:pair/sell                                | GET    | Get Sell Price       |                      |
+|   🕸   | /v2/prices/:pair/spot                                | GET    | Get Spot Price       |                      |
+|   🕸   | /v2/time                                             | GET    | Get Current Time     |                      |
+
+
+
+### API v3: Advanced Trade API Endpoints
+
+The **v3 API** unifies account management, order placement, and trading under the `/api/v3/brokerage/` path. This is Coinbase's actively developed API and is the recommended interface for both basic and advanced use cases.
+
+
+| Status | Endpoint                                             | Method | Description          | Wrapper Function     |
+|:------:|------------------------------------------------------|:------:|----------------------|----------------------|
+|   ✅   | /api/v3/brokerage/accounts                           | GET    | List Accounts        | `account_list()`     |
+|   ✅   | /api/v3/brokerage/accounts/{acc_id}                  | GET    | Get Account          | `account_get()`      |
+|        | /api/v3/brokerage/orders                             | POST   | Create Order         |                      |
+|        | /api/v3/brokerage/orders/batch_cancel                | POST   | Cancel Orders        |                      |
+|        | /api/v3/brokerage/orders/historical/batch            | GET    | List Orders          |                      |
+|        | /api/v3/brokerage/orders/historical/fills            | GET    | List Fills           |                      |
+|        | /api/v3/brokerage/orders/historical/{order_id}       | GET    | Get Order            |                      |
+|        | /api/v3/brokerage/orders/preview                     | POST   | Preview Orders       |                      |
+|        | /api/v3/brokerage/best_bid_ask                       | GET    | Get Best Bid/Ask     |                      |
+|        | /api/v3/brokerage/product_book                       | GET    | Get Product Book     |                      |
+|        | /api/v3/brokerage/products                           | GET    | List Products        |                      |
+|        | /api/v3/brokerage/products/{prod_id}                 | GET    | Get Product          |                      |
+|        | /api/v3/brokerage/products/{prod_id}/candles         | GET    | Get Product Candles  |                      |
+|        | /api/v3/brokerage/products/{prod_id}/ticker          | GET    | Get Market Trades    |                      |
+|   ⏳   | /api/v3/brokerage/transaction_summary                | GET    | Get Trans. Summary   |                      |
+|        | /api/v3/brokerage/convert/quote                      | POST   | Create Convert Quote |                      |
+|        | /api/v3/brokerage/convert/{trd_id}                   | POST   | Commit Convert Trade |                      |
+|        | /api/v3/brokerage/convert/{trd_id}                   | GET    | Get Convert Trade    |                      |
+|        | /api/v3/brokerage/portfolios                         | GET    | List Portfolios      |                    |
+|        | /api/v3/brokerage/portfolios                         | POST   | Create Portfolio     |                    | 
+|        | /api/v3/brokerage/portfolios                         | POST   | Move Portfolio Funds |                    |
+|        | /api/v3/brokerage/portfolios                         | GET    | Get Pflio Breakdown  |                    |
+|        | /api/v3/brokerage/portfolios                         | DELETE | Delete Portfolio     |                    |
+|        | /api/v3/brokerage/portfolios                         | PUT    | Edit Portfolio       |                    |
+|        | /api/v3/brokerage/cfm/balance_summary                | GET    | Get Fut. Bal, Summary|                    |
+|        | /api/v3/brokerage/cfm.positions                      | GET    | List Fut. Positions  |                    |
+|        | /api/v3/brokerage/cfm/positions/{prod_id}            | GET    | Get Futures Position |                    |
+|        | /api/v3/brokerage/cfm/sweeps/schedule                | POST   | Schedule Fut. Sweep  |                    |
+|        | /api/v3/brokerage/cfm/sweeps                         | GET    | List Futures Sweeps  |                    |
+|        | /api/v3/brokerage/cfm/sweeps                         | DELETE | Cancel Futures Sweep |                    |
+|        | /api/v3/brokerage/cfm/intraday/margin_setting        | GET    | Get I.Day Mg Setting |                    |
+|        | /api/v3/brokerage/cfm/intraday/margin_setting        | POST   | Set I.Day Mg Setting |                    |
+|        | /api/v3/brokerage/cfm/intraday/current_margin_window | GET    | Get Current Mg Window|                    |
+|        | /api/v3/brokerage/intx/portfolio                     | GET    | Get Perp Pflio Summry|                    |
+|        | /api/v3/brokerage/intx/positions                     | GET    | List Perp Positions  |                    |
+|        | /api/v3/brokerage/intx/positions                     | GET    | Get Perpetuals Pos   |                    |
+|        | /api/v3/brokerage/intx/balances                      | GET    | Get Perp Pflio Bal   |                    |
+|        | /api/v3/brokerage/intx/multi_asset_collateral        | POST   | OptIn Multiasset Coll|                    |
+|        | /api/v3/brokerage/intx/allocate                      | POST   | Allocate Portfolio   |                    |
+|   ⏳   | /api/v3/brokerage/payment_methods                    | GET    | List Payment Methods |                    |
+|   ⏳   | /api/v3/brokerage/payment_methods/{pay_method_id}    | GET    | Get Payment Method   |                    |
+|        | /api/v3/brokerage/key_permissions                    | GET    | Get Key Permissions  |                    |
+|   ✅   | /api/v3/brokerage/time                               | GET    | Get Server Time      | `server_time()`    | 
+|        | /api/v3/brokerage/market/product_book                | GET    | Get Public Prod Book |                    |
+|        | /api/v3/brokerage/market/products                    | GET    | List Public Products |                    |
+|        | /api/v3/brokerage/market/products/{prod_id}          | GET    | Get Public Product   |                    |
+|        | /api/v3/brokerage/market/products/{prod_id}/candles  | GET    | Get Pub Prod Candles |                    |
+|        | /api/v3/brokerage/market/products/{prod_id}/ticker   | GET    | Get Public Mkt Trades|                    |
+
+
+---
+
+## Notes
+
+- Even if no wrapper exists, you can call any endpoint via `apirequest()` by specifying the path and HTTP method.
+- Endpoints are grouped logically by API version and use-case.
+- Deprecated v2 endpoints are retained for completeness but not recommended for new development.
