@@ -1,6 +1,6 @@
 ---
 title: "Coinbase API Endpoint Summary"
-# output: rmarkdown::html_vignette
+output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Coinbase API Endpoint Summary}
   %\VignetteEngine{knitr::rmarkdown}

@@ -85,6 +85,10 @@ print.rcoinbaseapi_clock_drift <- function(x, ...) {
   local_dt <- as.POSIXct(x$local, origin = "1970-01-01", tz = "UTC")
   server_dt <- as.POSIXct(x$server, origin = "1970-01-01", tz = "UTC")
 
+  # Needed to keep lintr 'happy'
+  force(local_dt)
+  force(server_dt)
+
   cli::cli_h3("Clock Drift")
   cli::cli_inform(c(
     "{.strong System time:} {format(local_dt, '%Y-%m-%d %H:%M:%OS3 %Z')} (epoch: {x$local})",

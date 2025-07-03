@@ -123,7 +123,7 @@ transaction_summary <- function(product_type = NULL, expiry = NULL, venue = NULL
     expiry <- validate_choice(product_type,
                               "expiry",
                               c("UNKNOWN_CONTRACT_EXPIRY_TYPE", "EXPIRING", "PERPETUAL"))
-    if (!is.null(q_par$product_type) && q_par$product_type=="FUTURE") {
+    if (!is.null(q_par$product_type) && q_par$product_type == "FUTURE") {
       q_par <- c(q_par, contract_expiry_type = expiry)
     } else {
       cli::cli_inform(c("i" = "Ignoring parameter `expiry`",
