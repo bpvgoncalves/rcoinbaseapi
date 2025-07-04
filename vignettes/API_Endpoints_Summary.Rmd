@@ -102,8 +102,8 @@ The **v3 API** unifies account management, order placement, and trading under th
 |        | /api/v3/brokerage/intx/balances                      | GET    | Get Perp Pflio Bal   |                    |
 |        | /api/v3/brokerage/intx/multi_asset_collateral        | POST   | OptIn Multiasset Coll|                    |
 |        | /api/v3/brokerage/intx/allocate                      | POST   | Allocate Portfolio   |                    |
-|   ⏳   | /api/v3/brokerage/payment_methods                    | GET    | List Payment Methods |                    |
-|   ⏳   | /api/v3/brokerage/payment_methods/{pay_method_id}    | GET    | Get Payment Method   |                    |
+|   ✅   | /api/v3/brokerage/payment_methods                    | GET    | List Payment Methods | `pay_method_list()`|
+|   ✅   | /api/v3/brokerage/payment_methods/{pay_method_id}    | GET    | Get Payment Method   | `pay_method_get() `|
 |        | /api/v3/brokerage/key_permissions                    | GET    | Get Key Permissions  |                    |
 |   ✅   | /api/v3/brokerage/time                               | GET    | Get Server Time      | `server_time()`    | 
 |        | /api/v3/brokerage/market/product_book                | GET    | Get Public Prod Book |                    |
