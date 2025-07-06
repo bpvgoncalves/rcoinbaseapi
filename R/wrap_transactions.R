@@ -120,7 +120,7 @@ transaction_summary <- function(product_type = NULL, expiry = NULL, venue = NULL
   }
 
   if (!is.null(expiry)) {
-    expiry <- validate_choice(product_type,
+    expiry <- validate_choice(expiry,
                               "expiry",
                               c("UNKNOWN_CONTRACT_EXPIRY_TYPE", "EXPIRING", "PERPETUAL"))
     if (!is.null(q_par$product_type) && q_par$product_type == "FUTURE") {
@@ -132,8 +132,8 @@ transaction_summary <- function(product_type = NULL, expiry = NULL, venue = NULL
   }
 
   if (!is.null(venue)) {
-    venue <- validate_choice(product_type,
-                             "expiry",
+    venue <- validate_choice(venue,
+                             "venue",
                              c("UNKNOWN_VENUE_TYPE", "CBE", "FCM", "INTX"))
     q_par <- c(q_par, product_venue = toupper(venue))
   }
