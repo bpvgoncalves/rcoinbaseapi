@@ -35,8 +35,8 @@ deposit_list <- function(account_uuid) {
 
 #' Coinbase API - Deposit - Create New Deposit
 #'
-#' This function queries the `v2/accounts/{account_uuid}/deposits` endpoint to initiate a new deposit
-#' into the specified account using a linked payment method. Requires authentication.
+#' This function queries the `v2/accounts/{account_uuid}/deposits` endpoint to initiate a new
+#' deposit into the specified account using a linked payment method. Requires authentication.
 #'
 #' @param account_uuid A string containing the account UUID.
 #' @param amount A numeric value specifying the amount to deposit.

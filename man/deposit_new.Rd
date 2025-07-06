@@ -27,8 +27,8 @@ deposit_new(
 A list with details of the newly created deposit request.
 }
 \description{
-This function queries the \code{v2/accounts/{account_uuid}/deposits} endpoint to initiate a new deposit
-into the specified account using a linked payment method. Requires authentication.
+This function queries the \code{v2/accounts/{account_uuid}/deposits} endpoint to initiate a new
+deposit into the specified account using a linked payment method. Requires authentication.
 }
 \examples{
 \dontrun{
