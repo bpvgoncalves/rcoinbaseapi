@@ -75,7 +75,7 @@ apirequest <- function(method = "GET",
       cli::cli_abort(c("Invalid parameter `body_params`.",
                        "i" = "All items in the list MUST be named."))
     }
-    req <- httr2::req_body_json(req, jsonlite::toJSON(body_params, auto_unbox = TRUE))
+    req <- httr2::req_body_json(req, body_params)
   }
 
   # Add some headers
