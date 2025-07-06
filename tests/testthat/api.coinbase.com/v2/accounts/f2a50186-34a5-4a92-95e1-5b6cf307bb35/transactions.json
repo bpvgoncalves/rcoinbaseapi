@@ -1,0 +1,46 @@
+{
+    "data": [
+        {
+            "amount": {
+                "amount": "0.000000",
+                "currency": "EURC"
+            },
+            "buy": {
+                "fee": {
+                    "amount": "0.0",
+                    "currency": "EUR"
+                },
+                "id": "c7ff7e9a-4219-4e22-95e0-bbb1f360db6b",
+                "payment_method_name": "***",
+                "subtotal": {
+                    "amount": "0.00",
+                    "currency": "EUR"
+                },
+                "total": {
+                    "amount": "0.00",
+                    "currency": "EUR"
+                }
+            },
+            "created_at": "2025-02-26T21:20:40Z",
+            "id": "09da2e68-e414-433b-a734-d54faad9d456",
+            "native_amount": {
+                "amount": "0.00",
+                "currency": "EUR"
+            },
+            "resource": "transaction",
+            "resource_path": "/v2/accounts/f2a50186-34a5-4a92-95e1-5b6cf307bb35/transactions/09da2e68-e414-433b-a734-d54faad9d456",
+            "status": "completed",
+            "type": "buy"
+        }
+    ],
+    "pagination": {
+        "ending_before": null,
+        "limit": 25,
+        "next_starting_after": null,
+        "next_uri": null,
+        "order": "desc",
+        "previous_ending_before": null,
+        "previous_uri": null,
+        "starting_after": null
+    }
+}

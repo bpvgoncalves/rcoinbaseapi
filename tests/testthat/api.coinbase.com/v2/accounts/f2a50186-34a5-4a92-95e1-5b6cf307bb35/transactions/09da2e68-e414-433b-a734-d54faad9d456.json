@@ -1,0 +1,25 @@
+{
+    "data": {
+        "id": "09da2e68-e414-433b-a734-d54faad9d456",
+        "type": "advanced_trade_fill",
+        "status": "completed",
+        "amount": {
+            "amount": "-2.000000",
+            "currency": "EURC"
+        },
+        "native_amount": {
+            "amount": "-2.00",
+            "currency": "EUR"
+        },
+        "created_at": "2025-03-10T21:20:43Z",
+        "resource": "transaction",
+        "resource_path": "/v2/accounts/f2a50186-34a5-4a92-95e1-5b6cf307bb35/transactions/09da2e68-e414-433b-a734-d54faad9d456",
+        "advanced_trade_fill": {
+            "fill_price": "1.083",
+            "product_id": "EURC-USDC",
+            "order_id": "539ceb9a-8461-4e13-a37b-c29ff278e763",
+            "commission": "0",
+            "order_side": "sell"
+        }
+    }
+}
