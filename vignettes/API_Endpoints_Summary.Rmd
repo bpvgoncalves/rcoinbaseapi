@@ -38,10 +38,10 @@ The **v2 API** is Coinbase’s older interface for account balances, pricing, an
 |        | /v2/accounts/:acc_id/addresses                       | GET    | List Addresses       |                      |
 |        | /v2/accounts/:acc_id/addresses/:add_id               | GET    | Show Address         |                      |
 |        | /v2/accounts/:acc_id/addresses/:add_id/transactions  | GET    | List Transactions    |                      |
-|        | /v2/accounts/:acc_id/deposits                        | POST   | Deposit Funds        |                      |
-|        | /v2/accounts/:acc_id/deposits/:depo_id/commit        | POST   | Commit Deposit       |                      |
-|        | /v2/accounts/:acc_id/deposits                        | GET    | List Deposits        |                      |
-|        | /v2/accounts/:acc_id/deposits/:depo_id               | GET    | Show Deposit         |                      |
+|   ✅   | /v2/accounts/:acc_id/deposits                        | POST   | Deposit Funds        | `deposit_new()`      |
+|   ✅   | /v2/accounts/:acc_id/deposits/:depo_id/commit        | POST   | Commit Deposit       | `deposit_confirm()`  |
+|   ✅   | /v2/accounts/:acc_id/deposits                        | GET    | List Deposits        | `deposit_list()`     |
+|   ❌   | /v2/accounts/:acc_id/deposits/:depo_id               | GET    | Show Deposit         |                      |
 |        | /v2/accounts/:acc_id/withdrawals                     | POST   | Withdraw Funds       |                      |
 |        | /v2/accounts/:acc_id/withdrawals/:withd_id/commit    | POST   | Commit Withdrawal    |                      |
 |        | /v2/accounts/:acc_id/withdrawals                     | GET    | List Withdrawals     |                      |
