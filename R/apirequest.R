@@ -93,6 +93,7 @@ apirequest <- function(method = "GET",
 
   # Perform request
   tryCatch({
+    req <- httr2::req_error(req, body = apirequest_errors)
     resp <- httr2::req_perform(req)
   },
   error = function(e) {
@@ -140,4 +141,11 @@ apirequest_authorize <- function(req) {
   }
 
   invisible(req)
+}
+
+
+apirequest_errors <- function(resp) {
+
+  err_data <- httr2::resp_body_json(resp, simplifyVector = TRUE, flatten = TRUE)
+  invisible(paste0("API Error: ", err_data$code, " - ", err_data$message))
 }
