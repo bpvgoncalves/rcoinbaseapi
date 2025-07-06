@@ -1,0 +1,56 @@
+{
+    "pagination": {
+        "ending_before": "",
+        "starting_after": "",
+        "previous_ending_before": "",
+        "next_starting_after": "eyJ2MSI6MCwidjIiOjF9",
+        "order": "desc",
+        "previous_uri": "",
+        "next_uri": "",
+        "total_count": "1"
+    },
+    "data": [
+        {
+            "id": "168b3c61-dc2a-55af-a440-34727b9519ab",
+            "status": "completed",
+            "user_reference": "",
+            "created_at": "2025-07-04T21:22:28.089265Z",
+            "updated_at": "2025-07-04T21:22:37.824994Z",
+            "resource": "deposit",
+            "resource_path": "/v2/accounts/f2a50186-34a5-4a92-95e1-5b6cf307bb35/deposits/168b3c61-dc2a-55af-a440-34727b9519ab",
+            "transaction": {
+                "transaction_id": "e6b06d1f-3255-53b8-bbec-6ffd3ba2ac64",
+                "resource": "transaction",
+                "resource_path": "/v2/accounts/f2a50186-34a5-4a92-95e1-5b6cf307bb35/transactions/e6b06d1f-3255-53b8-bbec-6ffd3ba2ac64"
+            },
+            "payment_method": {
+                "id": "",
+                "resource": "payment_method",
+                "resource_path": "/v2/payment-method/"
+            },
+            "commited": true,
+            "payout_at": "2025-07-04T21:22:28.089265Z",
+            "instant": false,
+            "amount": {
+                "amount": "5.00",
+                "currency": "EUR"
+            },
+            "subtotal": {
+                "amount": "5.00",
+                "currency": "EUR"
+            },
+            "hold_until": "2025-07-04T21:22:28.089265Z",
+            "hold_days": 0,
+            "fee_explanation_url": "",
+            "idem": "168b3c61-dc2a-55af-a440-34727b9519ab",
+            "cancel_reason": {
+                "id": "",
+                "message": ""
+            },
+            "fee": {
+                "amount": "0.00",
+                "currency": "EUR"
+            }
+        }
+    ]
+}

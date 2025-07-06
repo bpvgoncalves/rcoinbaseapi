@@ -1,0 +1,36 @@
+{
+    "transfer": {
+        "user_entered_amount": null,
+        "amount": null,
+        "total": null,
+        "subtotal": null,
+        "idem": "",
+        "committed": false,
+        "id": "",
+        "instant": false,
+        "source": null,
+        "target": null,
+        "payout_at": null,
+        "status": "",
+        "user_reference": "",
+        "type": "TRANSFER_TYPE_UNSPECIFIED",
+        "created_at": null,
+        "updated_at": null,
+        "user_warnings": [
+
+        ],
+        "fees": [
+
+        ],
+        "total_fee": null,
+        "cancellation_reason": {
+            "message": "User does not have the permission for the action(s)",
+            "code": "ERROR_CODES_PERMISSION_DENIED",
+            "error_code": "ERROR_CODES_PERMISSION_DENIED"
+        },
+        "hold_days": 0,
+        "nextStep": null,
+        "checkout_url": "",
+        "requires_completion_step": false
+    }
+}
