@@ -83,26 +83,47 @@ test_that("deposit functions throw error for invalid input", {
   expect_error(deposit_new("not-a-uuid", 100, "USD", "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
                "Invalid parameter `account_uuid`")
 
-  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", NULL, "USD", "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
+  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2",
+                           NULL,
+                           "USD",
+                           "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
                "Invalid parameter `amount`")
-  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", NA, "USD", "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
+  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", NA, "USD",
+                           "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
                "Invalid parameter `amount`")
-  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", TRUE, "USD", "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
+  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", TRUE, "USD",
+                           "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
                "Invalid parameter `amount`")
-  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", Inf, "USD", "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
+  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", Inf, "USD",
+                           "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
                "Invalid parameter `amount`")
-  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", "not-numeric", "USD", "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
+  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", c(1.11, 2.22), "USD",
+                           "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
+               "Invalid parameter `amount`")
+  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", "not-numeric", "USD",
+                           "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
+               "Invalid parameter `amount`")
+  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", -1.23, "USD",
+                           "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
                "Invalid parameter `amount`")
 
-  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", 100, NULL, "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
+  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", 100, NULL,
+                           "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
                "Invalid parameter `currency`")
-  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", 100, NA, "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
+  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", 100, NA,
+                           "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
                "Invalid parameter `currency`")
-  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", 100, FALSE, "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
+  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", 100, FALSE,
+                           "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
                "Invalid parameter `currency`")
-  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", 100, 123, "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
+  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", 100, 123,
+                           "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
                "Invalid parameter `currency`")
-  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", 100, 456L, "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
+  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", 100, 456L,
+                           "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
+               "Invalid parameter `currency`")
+  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", 100, c("EUR", "USD"),
+                           "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
                "Invalid parameter `currency`")
 
   expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", 100, "USD", NULL),
@@ -115,14 +136,27 @@ test_that("deposit functions throw error for invalid input", {
                "Invalid parameter `pay_method_uuid`")
   expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", 100, "USD", Inf),
                "Invalid parameter `pay_method_uuid`")
+  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2",
+                           100,
+                           "USD",
+                           c("ce2316d0-29d6-4bf5-85c5-940dfe19acbb",
+                             "ce2316d0-29d6-4bf5-85c5-940dfe19acbb")),
+               "Invalid parameter `pay_method_uuid`")
 
-  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", 100, "USD", "ce2316d0-29d6-4bf5-85c5-940dfe19acbb", auto_confirm = "yes"),
+  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", 100, "USD",
+                           "ce2316d0-29d6-4bf5-85c5-940dfe19acbb", auto_confirm = "yes"),
                "Invalid parameter `auto_confirm`")
-  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", 100, "USD", "ce2316d0-29d6-4bf5-85c5-940dfe19acbb", auto_confirm = NULL),
+  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", 100, "USD",
+                           "ce2316d0-29d6-4bf5-85c5-940dfe19acbb", auto_confirm = NULL),
                "Invalid parameter `auto_confirm`")
-  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", 100, "USD", "ce2316d0-29d6-4bf5-85c5-940dfe19acbb", auto_confirm = 123),
+  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", 100, "USD",
+                           "ce2316d0-29d6-4bf5-85c5-940dfe19acbb", auto_confirm = 123),
                "Invalid parameter `auto_confirm`")
-  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", 100, "USD", "ce2316d0-29d6-4bf5-85c5-940dfe19acbb", auto_confirm = "TRUE"),
+  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", 100, "USD",
+                           "ce2316d0-29d6-4bf5-85c5-940dfe19acbb", auto_confirm = "TRUE"),
+               "Invalid parameter `auto_confirm`")
+  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", 100, "USD",
+                           "ce2316d0-29d6-4bf5-85c5-940dfe19acbb", auto_confirm = c(TRUE, FALSE)),
                "Invalid parameter `auto_confirm`")
 
   expect_error(deposit_confirm(NULL, "0d08e9b8-8859-4f29-bd1e-c7b6cfbe88a5"),
