@@ -19,31 +19,22 @@ apirequest <- function(method = "GET",
                        need_auth = TRUE,
                        use_sandbox = FALSE) {
 
-  if (!is.null(use_sandbox) && !is_ugly(use_sandbox) && is.logical(use_sandbox)) {
-    if (use_sandbox) {
-      base_url <- "https://api-sandbox.coinbase.com"
-    } else {
-      base_url <- "https://api.coinbase.com"
-    }
+  check_boolean(use_sandbox, "use_sandbox")
+  if (use_sandbox) {
+    base_url <- "https://api-sandbox.coinbase.com"
   } else {
-    cli::cli_abort("Invalid parameter `use_sandbox`: {use_sandbox}")
+    base_url <- "https://api.coinbase.com"
   }
 
   # Create base request
   req <- httr2::request(base_url)
 
-  if (!is.null(method) && !is_ugly(method) && method %in% c("GET", "POST", "PUT", "DELETE")) {
-    req <- httr2::req_method(req, method)
-  } else {
-    cli::cli_abort(c("Invalid parameter `method`: {method}",
-                     "i" = "Parameter `method` MUST be: 'GET', 'POST', 'PUT' or 'DELETE'."))
-  }
+  check_enum(method, "method", c("GET", "POST", "PUT", "DELETE"))
+  req <- httr2::req_method(req, method)
 
-  if (!is.null(endpoint) && !is_ugly(endpoint)) {
-    req <- httr2::req_url_path(req, endpoint)
-  } else {
-    cli::cli_abort("Invalid parameter `endpoint`: {endpoint}")
-  }
+  check_string_or_empty(endpoint, "endpoint")
+  req <- httr2::req_url_path(req, endpoint)
+
 
   # Add parameters, if available
   if (!is.null(path_params)) {
@@ -83,13 +74,11 @@ apirequest <- function(method = "GET",
   req <- httr2::req_headers(req, "Accept-Encoding" = "gzip, deflate, br, zstd")
 
   # Add request authorization if needed
-  if (!is.null(need_auth) && !is_ugly(need_auth) && is.logical(need_auth)) {
-    if (need_auth) {
-      req <- apirequest_authorize(req)
-    }
-  } else {
-    cli::cli_abort("Invalid parameter `need_auth`: {need_auth}")
+  check_boolean(need_auth, "need_auth")
+  if (need_auth) {
+    req <- apirequest_authorize(req)
   }
+
 
   # Perform request
   tryCatch({

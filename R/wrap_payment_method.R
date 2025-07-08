@@ -36,10 +36,7 @@ pay_method_list <- function() {
 #' }
 pay_method_get <- function(method_uuid) {
 
-  if (is.null(method_uuid) || is_ugly(method_uuid) || !is_uuid(method_uuid)) {
-    cli::cli_abort("Invalid parameter `method_uuid`: {method_uuid}")
-  }
-
+  check_uuid(method_uuid, "method_uuid")
 
   resp <- apirequest("GET",
                      "api/v3/brokerage/payment_methods",

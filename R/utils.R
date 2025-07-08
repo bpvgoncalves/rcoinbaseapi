@@ -6,40 +6,6 @@ all <- NULL
 .rcoinbaseapi_key_mem_store <- new.env()
 
 
-is_bad <- function(x) {
-  any(is.na(x)) || any(is.nan(x)) || any(is.infinite(x))
-}
-
-
-is_ugly <- function(x) {
-  length(x) != 1 || is_bad(x)
-}
-
-is_uuid <- function(string) {
-  string <- toupper(as.character(string))
-  grepl("[0-9A-F]{8}-[0-9A-F]{4}-[45][0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}", string)
-}
-
-
-#' Validate Choice Argument
-#'
-#' Validates a single-character input against a list of accepted choices.
-#'
-#' @param arg The argument to validate (character scalar).
-#' @param name Name of the argument (used in error messages).
-#' @param choices Character vector of valid options (will be matched case-insensitively).
-#'
-#' @return The validated and uppercased version of the argument.
-#' @noRd
-validate_choice <- function(arg, name, choices) {
-  if (is_ugly(arg) || !(toupper(arg) %in% choices)) {
-    cli::cli_abort(c("x" = "Invalid parameter `{name}`: {arg}",
-                     "i" = "It MUST be one of: {choices}"))
-  }
-  toupper(arg)
-}
-
-
 #' Coinbase API - Utils - Check Time Drift
 #'
 #' This function compares your local system clock with Coinbase's public time server,

@@ -22,9 +22,7 @@
 #' }
 transaction_list <- function(account_uuid) {
 
-  if (is.null(account_uuid) || is_ugly(account_uuid) || !is_uuid(account_uuid)) {
-    cli::cli_abort("Invalid parameter `account_uuid`: {account_uuid}")
-  }
+  check_uuid(account_uuid, "account_uuid")
 
   resp <- apirequest("GET",
                      "v2/accounts",
@@ -64,13 +62,8 @@ transaction_list <- function(account_uuid) {
 #' }
 transaction_get <- function(account_uuid, transaction_uuid) {
 
-  if (is.null(account_uuid) || is_ugly(account_uuid) || !is_uuid(account_uuid)) {
-    cli::cli_abort("Invalid parameter `account_uuid`: {account_uuid}")
-  }
-
-  if (is.null(transaction_uuid) || is_ugly(transaction_uuid) || !is_uuid(transaction_uuid)) {
-    cli::cli_abort("Invalid parameter `transaction_uuid`: {transaction_uuid}")
-  }
+  check_uuid(account_uuid, "account_uuid")
+  check_uuid(transaction_uuid, "transaction_uuid")
 
   resp <- apirequest("GET",
                      "v2/accounts",
@@ -113,18 +106,14 @@ transaction_summary <- function(product_type = NULL, expiry = NULL, venue = NULL
   q_par <- list()
 
   if (!is.null(product_type)) {
-    product_type <- validate_choice(product_type,
-                                    "product_type",
-                                    c("UNKNOWN_PRODUCT_TYPE", "SPOT", "FUTURE"))
-    q_par <- c(q_par, product_type = product_type)
+    check_enum(product_type, "product_type", c("UNKNOWN_PRODUCT_TYPE", "SPOT", "FUTURE"))
+    q_par <- c(q_par, product_type = toupper(product_type))
   }
 
   if (!is.null(expiry)) {
-    expiry <- validate_choice(expiry,
-                              "expiry",
-                              c("UNKNOWN_CONTRACT_EXPIRY_TYPE", "EXPIRING", "PERPETUAL"))
+    check_enum(expiry, "expiry", c("UNKNOWN_CONTRACT_EXPIRY_TYPE", "EXPIRING", "PERPETUAL"))
     if (!is.null(q_par$product_type) && q_par$product_type == "FUTURE") {
-      q_par <- c(q_par, contract_expiry_type = expiry)
+      q_par <- c(q_par, contract_expiry_type = toupper(expiry))
     } else {
       cli::cli_inform(c("i" = "Ignoring parameter `expiry`",
                         "Parameter `expiry` only applicable when `product_type` is 'FUTURE'."))
@@ -132,9 +121,7 @@ transaction_summary <- function(product_type = NULL, expiry = NULL, venue = NULL
   }
 
   if (!is.null(venue)) {
-    venue <- validate_choice(venue,
-                             "venue",
-                             c("UNKNOWN_VENUE_TYPE", "CBE", "FCM", "INTX"))
+    check_enum(venue, "venue", c("UNKNOWN_VENUE_TYPE", "CBE", "FCM", "INTX"))
     q_par <- c(q_par, product_venue = toupper(venue))
   }
 

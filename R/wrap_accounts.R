@@ -39,29 +39,20 @@ account_list <- function(limit = NULL, cursor = NULL, use_sandbox = FALSE) {
   q_par <- list()
 
   if (!is.null(limit)) {
-    if (!is_ugly(limit) && is.numeric(limit) && limit == as.integer(limit)) {
-      if (limit > 250L) {
-        limit <- 250L
-        cli::cli_alert_info("Parameter 'limit = {limit}' exceeds maximum of 250. Reduced to 250.")
-      }
-      q_par <- c(q_par, limit = as.integer(limit))
-    } else {
-      cli::cli_abort("Invalid parameter `limit`: {limit}")
+    check_positive_integer(limit, "limit")
+    if (limit > 250L) {
+      limit <- 250L
+      cli::cli_alert_info("Parameter 'limit = {limit}' exceeds maximum of 250. Reduced to 250.")
     }
+    q_par <- c(q_par, limit = as.integer(limit))
   }
-
 
   if (!is.null(cursor)) {
-    if (!is_ugly(cursor) && is.character(cursor)) {
-      q_par <- c(q_par, cursor = cursor)
-    } else {
-      cli::cli_abort("Invalid parameter `cursor`: {cursor}")
-    }
+    check_string_nonempty(cursor, "cursor")
+    q_par <- c(q_par, cursor = cursor)
   }
 
-  if (is.null(use_sandbox) || !is.logical(use_sandbox)) {
-    cli::cli_abort("Invalid parameter `use_sandbox`: {use_sandbox}")
-  }
+  check_boolean(use_sandbox, "use_sandbox")
 
   ret <- data.frame()
   send_request <- TRUE
@@ -113,13 +104,9 @@ account_list <- function(limit = NULL, cursor = NULL, use_sandbox = FALSE) {
 #' }
 account_get <- function(account_uuid = NULL, use_sandbox = FALSE) {
 
-  if (is.null(account_uuid) || is_ugly(account_uuid) || !is_uuid(account_uuid)) {
-    cli::cli_abort("Invalid parameter `account_uuid`: {account_uuid}")
-  }
+  check_uuid(account_uuid, "account_uuid")
 
-  if (is.null(use_sandbox) || !is.logical(use_sandbox)) {
-    cli::cli_abort("Invalid parameter `use_sandbox`: {use_sandbox}")
-  }
+  check_boolean(use_sandbox, "use_sandbox")
 
   resp <- apirequest("GET",
                      "api/v3/brokerage/accounts",

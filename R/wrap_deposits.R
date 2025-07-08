@@ -17,9 +17,7 @@
 #' }
 deposit_list <- function(account_uuid) {
 
-  if (is.null(account_uuid) || is_ugly(account_uuid) || !is_uuid(account_uuid)) {
-    cli::cli_abort("Invalid parameter `account_uuid`: {account_uuid}")
-  }
+  check_uuid(account_uuid, "account_uuid")
 
   resp <- apirequest("GET",
                      "v2/accounts",
@@ -58,25 +56,11 @@ deposit_list <- function(account_uuid) {
 #' }
 deposit_new <- function(account_uuid, amount, currency, pay_method_uuid, auto_confirm = TRUE) {
 
-  if (is.null(account_uuid) || is_ugly(account_uuid) || !is_uuid(account_uuid)) {
-    cli::cli_abort("Invalid parameter `account_uuid`: {account_uuid}")
-  }
-
-  if (is.null(amount) || is_ugly(amount) || !is.numeric(amount)) {
-    cli::cli_abort("Invalid parameter `amount`: {amount}")
-  }
-
-  if (is.null(currency) || is_ugly(currency) || !is.character(currency)) {
-    cli::cli_abort("Invalid parameter `currency`: {currency}")
-  }
-
-  if (is.null(pay_method_uuid) || is_ugly(pay_method_uuid) || !is_uuid(pay_method_uuid)) {
-    cli::cli_abort("Invalid parameter `pay_method_uuid`: {pay_method_uuid}")
-  }
-
-  if (is.null(auto_confirm) || is_ugly(auto_confirm) || !is.logical(auto_confirm)) {
-    cli::cli_abort("Invalid parameter `auto_confirm`: {auto_confirm}")
-  }
+  check_uuid(account_uuid, "account_uuid")
+  check_positive_number(amount, "amount")
+  check_currency_iso(currency, "currency")
+  check_uuid(pay_method_uuid, "pay_method_uuid")
+  check_boolean(auto_confirm, "auto_confirm")
 
   depo_info <- list(amount = as.character(amount),
                     currency = currency,
@@ -116,13 +100,8 @@ deposit_new <- function(account_uuid, amount, currency, pay_method_uuid, auto_co
 #' }
 deposit_confirm <- function(account_uuid, deposit_uuid) {
 
-  if (is.null(account_uuid) || is_ugly(account_uuid) || !is_uuid(account_uuid)) {
-    cli::cli_abort("Invalid parameter `account_uuid`: {account_uuid}")
-  }
-
-  if (is.null(deposit_uuid) || is_ugly(deposit_uuid) || !is_uuid(deposit_uuid)) {
-    cli::cli_abort("Invalid parameter `deposit_uuid`: {deposit_uuid}")
-  }
+  check_uuid(account_uuid, "account_uuid")
+  check_uuid(deposit_uuid, "deposit_uuid")
 
   resp <- apirequest("POST",
                      "v2/accounts",
