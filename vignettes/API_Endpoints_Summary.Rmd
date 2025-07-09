@@ -31,7 +31,7 @@ The **v2 API** is Coinbase’s older interface for account balances, pricing, an
 |:------:|------------------------------------------------------|:------:|----------------------|----------------------|
 |   🕸   | /v2/accounts                                         | GET    | List Accounts        |                      |
 |   🕸   | /v2/accounts/:acc_id                                 | GET    | Show Account         |                      |
-|   ❌   | /v2/accounts/:acc_id/transactions                    | POST   | Send Money           |                      |
+|   ⏳   | /v2/accounts/:acc_id/transactions                    | POST   | Send Money           |                      |
 |   ✅   | /v2/accounts/:acc_id/transactions                    | GET    | List Transactions    | `transaction_list()` |    
 |   ✅   | /v2/accounts/:acc_id/transactions/:tx_id             | GET    | Show Transaction     | `transaction_get()`  |
 |        | /v2/accounts/:acc_id/addresses                       | POST   | Create Address       |                      |
@@ -42,10 +42,10 @@ The **v2 API** is Coinbase’s older interface for account balances, pricing, an
 |   ✅   | /v2/accounts/:acc_id/deposits/:depo_id/commit        | POST   | Commit Deposit       | `deposit_confirm()`  |
 |   ✅   | /v2/accounts/:acc_id/deposits                        | GET    | List Deposits        | `deposit_list()`     |
 |   ❌   | /v2/accounts/:acc_id/deposits/:depo_id               | GET    | Show Deposit         |                      |
-|        | /v2/accounts/:acc_id/withdrawals                     | POST   | Withdraw Funds       |                      |
-|        | /v2/accounts/:acc_id/withdrawals/:withd_id/commit    | POST   | Commit Withdrawal    |                      |
-|        | /v2/accounts/:acc_id/withdrawals                     | GET    | List Withdrawals     |                      |
-|        | /v2/accounts/:acc_id/withdrawals/:withd_id           | GET    | Show Withdrawal      |                      |
+|   ✅   | /v2/accounts/:acc_id/withdrawals                     | POST   | Withdraw Funds       | `withdraw_new()`     |
+|   ✅   | /v2/accounts/:acc_id/withdrawals/:withd_id/commit    | POST   | Commit Withdrawal    | `withdraw_confirm()` |
+|   ✅   | /v2/accounts/:acc_id/withdrawals                     | GET    | List Withdrawals     | `withdraw_list()`    |
+|   ❌   | /v2/accounts/:acc_id/withdrawals/:withd_id           | GET    | Show Withdrawal      |                      |
 |        | /v2/currencies                                       | GET    | Get Fiat Currencies  |                      |
 |        | /v2/currencies/crypto                                | GET    | Get Cryptocurrencies |                      |
 |        | /v2/exchange-rates                                   | GET    | Get Exchange Rates   |                      |
