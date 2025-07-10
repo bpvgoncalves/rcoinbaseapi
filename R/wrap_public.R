@@ -22,3 +22,37 @@ server_time <- function() {
 
   invisible(time_data)
 }
+
+
+#' Coinbase API - Public - Currencies
+#'
+#' Queries the public `/v3/currencies` endpoint to get a list of Fiat Currencies.
+#'
+#' @returns Data Frame
+#' @export
+currencies <- function() {
+
+  ccy_resp <- apirequest("GET", "v2/currencies", need_auth = FALSE, use_sandbox = FALSE)
+
+  ccy_data <- httr2::resp_body_json(ccy_resp, simplifyVector = TRUE, flatten = TRUE)[[1]]
+
+
+  invisible(ccy_data)
+}
+
+
+#' Coinbase API - Public - Cryptocurrencies
+#'
+#' Queries the public `/v3/currencies/crypto` endpoint to get a list of Cryptocurrencies.
+#'
+#' @returns Data Frame
+#' @export
+cryptocurrencies <- function() {
+
+  cryp_resp <- apirequest("GET", "v2/currencies/crypto", need_auth = FALSE, use_sandbox = FALSE)
+
+  cryp_data <- httr2::resp_body_json(cryp_resp, simplifyVector = TRUE, flatten = TRUE)[[1]]
+
+
+  invisible(cryp_data)
+}
