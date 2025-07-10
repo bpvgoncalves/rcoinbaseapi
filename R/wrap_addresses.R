@@ -89,7 +89,7 @@ address_new <- function(account_uuid, label = "") {
   check_uuid(account_uuid, "account_uuid")
 
   b_par <- list()
-  if(!is.null(label)) {
+  if (!is.null(label)) {
     check_string_or_empty(label, "label")
   }
   b_par$name <- label
