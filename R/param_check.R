@@ -24,7 +24,10 @@ check_boolean <- function(value, var_name) {
 check_currency_iso <- function(value, var_name) {
 
   ck <- checkmate::check_string(value, min.chars = 3L, max.chars = 3L)
-  # TODO: check against currency ISO codes list??
+
+  if (ck == TRUE && !(toupper(value) %in% dataset_ccy$id)) {
+    ck <- "Invalid currency code. Check `currencies()` for more details about acceptable values."
+  }
 
   if (!is.logical(ck)) ck_fail(value, var_name, ck)
   invisible(TRUE)

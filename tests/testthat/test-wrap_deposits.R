@@ -125,6 +125,9 @@ test_that("deposit functions throw error for invalid input", {
   expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", 100, c("EUR", "USD"),
                            "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
                "Invalid parameter `currency`")
+  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", 100, "ABC",
+                           "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
+               "Invalid parameter `currency`")
 
   expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", 100, "USD", NULL),
                "Invalid parameter `pay_method_uuid`")
