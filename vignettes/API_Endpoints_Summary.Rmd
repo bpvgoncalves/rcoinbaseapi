@@ -31,13 +31,13 @@ The **v2 API** is Coinbase’s older interface for account balances, pricing, an
 |:------:|------------------------------------------------------|:------:|----------------------|----------------------|
 |   🕸   | /v2/accounts                                         | GET    | List Accounts        |                      |
 |   🕸   | /v2/accounts/:acc_id                                 | GET    | Show Account         |                      |
-|   ⏳   | /v2/accounts/:acc_id/transactions                    | POST   | Send Money           |                      |
+|   ✅   | /v2/accounts/:acc_id/transactions                    | POST   | Send Money           | `transaction_send()` |
 |   ✅   | /v2/accounts/:acc_id/transactions                    | GET    | List Transactions    | `transaction_list()` |    
 |   ✅   | /v2/accounts/:acc_id/transactions/:tx_id             | GET    | Show Transaction     | `transaction_get()`  |
-|        | /v2/accounts/:acc_id/addresses                       | POST   | Create Address       |                      |
-|        | /v2/accounts/:acc_id/addresses                       | GET    | List Addresses       |                      |
-|        | /v2/accounts/:acc_id/addresses/:add_id               | GET    | Show Address         |                      |
-|        | /v2/accounts/:acc_id/addresses/:add_id/transactions  | GET    | List Transactions    |                      |
+|   ✅   | /v2/accounts/:acc_id/addresses                       | POST   | Create Address       | `address_new()`      |
+|   ✅   | /v2/accounts/:acc_id/addresses                       | GET    | List Addresses       | `address_list()`     |
+|   ❌   | /v2/accounts/:acc_id/addresses/:add_id               | GET    | Show Address         |                      |
+|   ✅   | /v2/accounts/:acc_id/addresses/:add_id/transactions  | GET    | List Transactions    | `address_transactions_list()` |
 |   ✅   | /v2/accounts/:acc_id/deposits                        | POST   | Deposit Funds        | `deposit_new()`      |
 |   ✅   | /v2/accounts/:acc_id/deposits/:depo_id/commit        | POST   | Commit Deposit       | `deposit_confirm()`  |
 |   ✅   | /v2/accounts/:acc_id/deposits                        | GET    | List Deposits        | `deposit_list()`     |
