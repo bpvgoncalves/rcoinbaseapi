@@ -16,7 +16,8 @@ Imports:
     jose,
     later,
     openssl,
-    rappdirs
+    rappdirs,
+    uuid
 Suggests: 
     httptest2,
     knitr,

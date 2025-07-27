@@ -135,3 +135,48 @@ transaction_summary <- function(product_type = NULL, expiry = NULL, venue = NULL
 
   invisible(resp_data)
 }
+
+
+#' Coinbase API - Transactions - Send Cryptocurrency
+#'
+#' @param account_uuid  Character. Desired account UUID.
+#' @param to            Character. A blockchain address, or email of the recipient.
+#' @param amount        Numeric. Amount to be sent.
+#' @param currency      Character. Cryptocurrency of the amount.
+#'
+#' @returns List with transaction details.
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' tx <- transaction_send("00000000-0000-4000-8000-000000000000",
+#'                        "3JA7MtC4eXMCWsgJJr9eUCLP2twSy4ouJn",
+#'                        0.0000001,
+#'                        "BTC")
+#' }
+transaction_send <- function(account_uuid, to, amount, currency) {
+
+  check_uuid(account_uuid, "account_uuid")
+  check_string_nonempty(to, "to")
+  check_positive_number(amount, "amount")
+  check_string_nonempty(currency, "currency")
+
+  q_par <- list(type = "send",
+                to = to,
+                amount = amount,
+                currency = currency,
+                idem = uuid::UUIDgenerate())
+
+  resp <- apirequest("GET",
+                     "v2/accounts",
+                     path_params = c(account_uuid, "transactions"),
+                     query_params = q_par,
+                     need_auth = TRUE,
+                     use_sandbox = FALSE)
+
+  resp_data <- httr2::resp_body_json(resp, simplifyVector = TRUE, flatten = TRUE)
+
+  invisible(resp_data)
+
+
+}
