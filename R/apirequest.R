@@ -87,7 +87,7 @@ apirequest <- function(method = "GET",
   },
   error = function(e) {
     cli::cli_abort(c("Failure executing the request.",
-                     e$message))
+                     "{.code {e$message}}"))
   })
   invisible(resp)
 }
