@@ -108,3 +108,52 @@ test_that("transaction_summary() rejects invalid inputs", {
   expect_error(transaction_summary(expiry = "FOO"), "Invalid parameter `expiry`")
   expect_error(transaction_summary(venue = "123"), "Invalid parameter `venue`")
 })
+
+
+test_that("transaction_send() sends crypto and returns transaction details", {
+
+  local_mocked_bindings(user_config_dir = function(x) tempdir(), .package = "rappdirs")
+  local_mocked_bindings(UUIDgenerate = function() "7752b102-81e9-4349-84d1-86d3d9a71873",
+                        .package = "uuid")
+
+  # We store a fake key to allow it to be read before sending the request, so that the in-memory
+  # key store is populated. A real key was used to obtain the response stored (and redacted) on
+  # the mock directory.
+  path <- apikey_store("fake_key", openssl::ec_keygen(), "abcd")
+  on.exit(unlink(path, force = TRUE), add = TRUE)
+  apikey_read("abcd")
+
+  with_mock_api({
+    result <- transaction_send(account_uuid = "00000000-0000-4000-8000-000000000000",
+                               to = "3JA7MtC4eXMCWsgJJr9eUCLP2twSy4ouJn",
+                               amount = 0.0000000001,
+                               currency = "BTC")
+
+    expect_type(result, "list")
+    expect_true("data" %in% names(result))
+    expect_true("id" %in% names(result$data))
+    expect_equal(result$data$type, "send")
+  })
+})
+
+
+test_that("transaction_send() fails with invalid parameters", {
+
+  expect_error(
+    transaction_send("not-a-uuid", "3JA7...", 0.1, "BTC"),
+    "Invalid parameter `account_uuid`")
+
+  expect_error(
+    transaction_send("00000000-0000-4000-8000-000000000000", "", 0.1, "BTC"),
+    "Invalid parameter `to`")
+
+  expect_error(
+    transaction_send("00000000-0000-4000-8000-000000000000", "recipient", -1, "BTC"),
+    "Invalid parameter `amount`")
+
+  expect_error(
+    transaction_send("00000000-0000-4000-8000-000000000000", "recipient", 0.1, ""),
+    "Invalid parameter `currency`"
+  )
+})
+

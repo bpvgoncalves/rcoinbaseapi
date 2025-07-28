@@ -1,0 +1,3100 @@
+{
+    "data": [
+        {
+            "asset_id": "5b71fc48-3dd3-540c-809b-f8c94d0e68b5",
+            "code": "BTC",
+            "name": "Bitcoin",
+            "color": "#F7931A",
+            "sort_index": 100,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^([13][a-km-zA-HJ-NP-Z1-9]{25,34})|^(bc1[pqzry9x8gf2tvdw0s3jn54khce6mua7l]([qpzry9x8gf2tvdw0s3jn54khce6mua7l]{38}|[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{58}))$"
+        },
+        {
+            "asset_id": "d85dce9b-5b73-5c3c-8978-522ce1d1c1b4",
+            "code": "ETH",
+            "name": "Ethereum",
+            "color": "#627EEA",
+            "sort_index": 101,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "c9c24c6e-c045-5fde-98a2-00ea7f520437",
+            "code": "LTC",
+            "name": "Litecoin",
+            "color": "#A6A9AA",
+            "sort_index": 102,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^((L|M)[a-km-zA-HJ-NP-Z1-9]{25,34})|^(ltc1([qpzry9x8gf2tvdw0s3jn54khce6mua7l]{39}|[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}))$"
+        },
+        {
+            "asset_id": "45f99e13-b522-57d7-8058-c57bf92fe7a3",
+            "code": "BCH",
+            "name": "Bitcoin Cash",
+            "color": "#8DC351",
+            "sort_index": 103,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^([13][a-km-zA-HJ-NP-Z1-9]{25,34})|^((bitcoincash:)?(q|p)[a-z0-9]{41})|^((BITCOINCASH:)?(Q|P)[A-Z0-9]{41})$"
+        },
+        {
+            "asset_id": "c16df856-0345-5358-8a70-2a78c804e61f",
+            "code": "ETC",
+            "name": "Ethereum Classic",
+            "color": "#59D4AF",
+            "sort_index": 104,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "a2a8f5ae-83a6-542e-9064-7d335ae8a58d",
+            "code": "ZRX",
+            "name": "0x Protocol",
+            "color": "#302C2C",
+            "sort_index": 105,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "2b92315d-eab7-5bef-84fa-089a131333f5",
+            "code": "USDC",
+            "name": "USDC",
+            "color": "#2775CA",
+            "sort_index": 106,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "b8950bef-d61b-53cd-bb66-db436f0f81bc",
+            "code": "BAT",
+            "name": "Basic Attention Token",
+            "color": "#FF5000",
+            "sort_index": 107,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "1d3c2625-a8d9-5458-84d0-437d75540421",
+            "code": "ZEC",
+            "name": "Zcash",
+            "color": "#ECB244",
+            "sort_index": 108,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(t1|t3)[a-km-zA-HJ-NP-Z1-9]{33}$|^tex1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{38}$"
+        },
+        {
+            "asset_id": "e17a44c8-6ea1-564f-a02c-2a9ca1d8eec4",
+            "code": "XRP",
+            "name": "XRP",
+            "color": "#222222",
+            "sort_index": 109,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^r[1-9a-km-zA-HJ-NP-Z]{25,35}$",
+            "destination_tag_name": "XRP Tag",
+            "destination_tag_regex": "^\\d{1,10}$"
+        },
+        {
+            "asset_id": "13b83335-5ede-595b-821e-5bcdfa80560f",
+            "code": "XLM",
+            "name": "Stellar Lumens",
+            "color": "#000000",
+            "sort_index": 110,
+            "exponent": 7,
+            "type": "crypto",
+            "address_regex": "^G[A-Z2-7]{55}$",
+            "destination_tag_name": "XLM Memo",
+            "destination_tag_regex": "^[ -~]{1,28}$"
+        },
+        {
+            "asset_id": "b8b44189-a54b-526f-b68d-1dbb27b462c3",
+            "code": "REP",
+            "name": "Augur",
+            "color": "#553580",
+            "sort_index": 111,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "01e9e33b-d099-56fb-aa3b-76c19d0b250e",
+            "code": "DAI",
+            "name": "Dai",
+            "color": "#FFB74D",
+            "sort_index": 112,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "8d556883-6c26-5a88-9d8f-fa41fe8ed76e",
+            "code": "EOS",
+            "name": "EOS",
+            "color": "#FF6C2D",
+            "sort_index": 113,
+            "exponent": 4,
+            "type": "crypto",
+            "address_regex": "(^[a-z1-5.]{1,11}[a-z1-5]$)|(^[a-z1-5.]{12}[a-j1-5]$)",
+            "destination_tag_name": "EOS Memo",
+            "destination_tag_regex": "^.{1,100}$"
+        },
+        {
+            "asset_id": "ea3107c6-416b-5b02-b99f-ded31a0cbdfe",
+            "code": "LINK",
+            "name": "Chainlink",
+            "color": "#0667D0",
+            "sort_index": 114,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "69e559ec-547a-520a-aeb3-01cac23f1826",
+            "code": "XTZ",
+            "name": "Tezos",
+            "color": "#2C7DF7",
+            "sort_index": 115,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "(tz[1|2|3]([a-zA-Z0-9]){33})|(^KT1([a-zA-Z0-9]){33}$)"
+        },
+        {
+            "asset_id": "b9c43d61-e77d-5e02-9a0d-800b50eb9d5f",
+            "code": "DASH",
+            "name": "Dash",
+            "color": "#008DE4",
+            "sort_index": 116,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^([X7][a-km-zA-HJ-NP-Z1-9]{25,34})$"
+        },
+        {
+            "asset_id": "07525606-a404-5f15-a71d-ba0e40e74eca",
+            "code": "OXT",
+            "name": "Orchid",
+            "color": "#5F45BA",
+            "sort_index": 117,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "64c607d2-4663-5649-86e0-3ab06bba0202",
+            "code": "ATOM",
+            "name": "Cosmos",
+            "color": "#2E3148",
+            "sort_index": 118,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^cosmos1[ac-hj-np-z02-9]{38}$",
+            "destination_tag_name": "ATOM Memo",
+            "destination_tag_regex": "^\\w{1,24}$"
+        },
+        {
+            "asset_id": "8c853af0-5071-5dd7-9f70-1a871107f53c",
+            "code": "KNC",
+            "name": "Kyber Network",
+            "color": "#31CB9E",
+            "sort_index": 119,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "5553e486-7a85-5433-a5c1-aaeb18a154dd",
+            "code": "MKR",
+            "name": "Maker",
+            "color": "#1AAB9B",
+            "sort_index": 120,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "65557d44-082d-50a1-a68b-bc98d961f794",
+            "code": "COMP",
+            "name": "Compound",
+            "color": "#00D395",
+            "sort_index": 121,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "9220d47f-bc0a-53ad-9646-ef49918adcf3",
+            "code": "ALGO",
+            "name": "Algorand",
+            "color": "#000000",
+            "sort_index": 122,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^[A-Z2-7]{58}$"
+        },
+        {
+            "asset_id": "bf3edc12-9feb-556f-a181-ae8a25cf073b",
+            "code": "BAND",
+            "name": "Band Protocol",
+            "color": "#516FFA",
+            "sort_index": 123,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "30dac328-eae0-523a-835e-aef52596d0dc",
+            "code": "NMR",
+            "name": "Numeraire",
+            "color": "#231F20",
+            "sort_index": 124,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "cfc02e75-e09b-535b-b35c-3c8bb0e63462",
+            "code": "CGLD",
+            "name": "Celo",
+            "color": "#FCFF52",
+            "sort_index": 125,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "003db351-767e-5656-b32d-8ce553310814",
+            "code": "UMA",
+            "name": "UMA",
+            "color": "#FF4A4A",
+            "sort_index": 126,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "6ffa1a5b-622b-596b-893a-56cfb152beb2",
+            "code": "LRC",
+            "name": "Loopring",
+            "color": "#1A61FF",
+            "sort_index": 127,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "8ebe6e4d-8bd6-5be0-8dca-aaa18a188915",
+            "code": "YFI",
+            "name": "yearn.finance",
+            "color": "#0667D0",
+            "sort_index": 128,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "412832ad-59dd-5af8-8d36-99ebda3afb80",
+            "code": "UNI",
+            "name": "Uniswap",
+            "color": "#FF007A",
+            "sort_index": 129,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "e0409f05-5a95-5abf-8082-c746da699f82",
+            "code": "BAL",
+            "name": "Balancer",
+            "color": "#1D282A",
+            "sort_index": 130,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "6b12b7ee-2295-5bd3-b4a2-fe711055d79f",
+            "code": "CVC",
+            "name": "Civic",
+            "color": "#32A530",
+            "sort_index": 131,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "66b98195-0562-586b-8cee-ee7f57923fef",
+            "code": "MANA",
+            "name": "Decentraland",
+            "color": "#B8AFA2",
+            "sort_index": 132,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "8dd8a49c-e75c-5c56-a353-468f6346ed93",
+            "code": "DNT",
+            "name": "district0x",
+            "color": "#21277C",
+            "sort_index": 133,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "0a5b73d1-a976-5966-b3ff-86be8f9b65d5",
+            "code": "FIL",
+            "name": "Filecoin",
+            "color": "#0E79FE",
+            "sort_index": 134,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "(^[ft][1][a-z2-7]{39}$)|(^[ft][4][\\d]+f[a-z2-7]{39}$)"
+        },
+        {
+            "asset_id": "b1646860-6b23-5f7d-a506-cba0902f0ca9",
+            "code": "AAVE",
+            "name": "Aave",
+            "color": "#9391F7",
+            "sort_index": 135,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "1b74d2fd-fa35-558d-a010-38d4481398c6",
+            "code": "BNT",
+            "name": "Bancor Network Token",
+            "color": "#000B20",
+            "sort_index": 136,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "3bd5bbea-a525-520c-9d2a-2d842e543caa",
+            "code": "SNX",
+            "name": "Synthetix Network Token",
+            "color": "#0A0118",
+            "sort_index": 137,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "3f9b015d-387d-589b-b65d-bd6d24babc96",
+            "code": "GRT",
+            "name": "The Graph",
+            "color": "#5227E8",
+            "sort_index": 138,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "ac7c7224-ae69-5e46-8923-983b472203ea",
+            "code": "SUSHI",
+            "name": "SushiSwap",
+            "color": "#F055A2",
+            "sort_index": 139,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "026bcc1e-9163-591c-a709-34dd18b2e7a1",
+            "code": "MATIC",
+            "name": "Polygon",
+            "color": "#8247E5",
+            "sort_index": 140,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "af2d755d-6142-57f4-a092-0aa4fe67a9b5",
+            "code": "SKL",
+            "name": "SKALE",
+            "color": "#000000",
+            "sort_index": 141,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "63062039-7afb-56ff-8e19-5e3215dc404a",
+            "code": "ADA",
+            "name": "Cardano",
+            "color": "#0033AD",
+            "sort_index": 142,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "(^(addr)1[ac-hj-np-z02-9]{6,}$)|(^(DdzFFz|Ae2td)[1-9A-HJ-NP-Za-km-z]+)"
+        },
+        {
+            "asset_id": "a5c6ceac-9226-55a7-a2dc-59d9149083d6",
+            "code": "STORJ",
+            "name": "Storj",
+            "color": "#2683FF",
+            "sort_index": 143,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "48a63b4a-1024-5cbe-9132-5dcc7792487d",
+            "code": "CRV",
+            "name": "Curve DAO Token",
+            "color": "#0A0B0D",
+            "sort_index": 144,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "5d88223d-ce08-529d-b533-e318d6ba4d79",
+            "code": "ANKR",
+            "name": "Ankr",
+            "color": "#579BF0",
+            "sort_index": 145,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "89cf59a7-afb8-574d-9e37-8ac01e374e7a",
+            "code": "NKN",
+            "name": "NKN",
+            "color": "#243A7E",
+            "sort_index": 146,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "070e2e07-1f4c-5556-9b3c-22f924e9fa1a",
+            "code": "OGN",
+            "name": "Origin Token",
+            "color": "#1F87FB",
+            "sort_index": 147,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "484f30a6-9e06-58df-80b7-e63141e3ca0c",
+            "code": "1INCH",
+            "name": "1inch",
+            "color": "#1B314F",
+            "sort_index": 148,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "a9b7db60-a25f-52c3-9df8-24fdfe16de1d",
+            "code": "FORTH",
+            "name": "Ampleforth Governance Token",
+            "color": "#4712B0",
+            "sort_index": 149,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "b26327c1-9a34-51d9-b982-9b29e6012648",
+            "code": "USDT",
+            "name": "Tether",
+            "color": "#22A079",
+            "sort_index": 150,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "7588d1dc-2aba-5357-85b6-6b728e85ad55",
+            "code": "CTSI",
+            "name": "Cartesi",
+            "color": "#00F6FF",
+            "sort_index": 151,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "248f278e-1c74-5b55-a554-4f3ee1aef291",
+            "code": "TRB",
+            "name": "Tellor",
+            "color": "#53FDB2",
+            "sort_index": 152,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "2a3e5cc1-7ef1-5a32-bf56-95aa79983f13",
+            "code": "RLC",
+            "name": "iExec RLC",
+            "color": "#FFD800",
+            "sort_index": 153,
+            "exponent": 9,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "8f0fb5e8-9924-50bd-b95c-1d4b88fd20cc",
+            "code": "ICP",
+            "name": "Internet Computer",
+            "color": "#292A2E",
+            "sort_index": 154,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^[0-9a-f]{64}$"
+        },
+        {
+            "asset_id": "d9a3edfa-1be7-589c-bd20-c034f3830b60",
+            "code": "DOGE",
+            "name": "Dogecoin",
+            "color": "#BA9F33",
+            "sort_index": 155,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^((D|A|9)[a-km-zA-HJ-NP-Z1-9]{25,34})$"
+        },
+        {
+            "asset_id": "15cbd0cf-ac58-512f-87f7-8078fa9a3f2a",
+            "code": "MLN",
+            "name": "Enzyme",
+            "color": "#3B82F6",
+            "sort_index": 156,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "19ca00b2-3058-5e4b-a84b-c84b74baed10",
+            "code": "GTC",
+            "name": "Gitcoin",
+            "color": "#02E2AC",
+            "sort_index": 157,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "f3b62870-ddd0-5dea-9d80-5190d8558461",
+            "code": "AMP",
+            "name": "Amp",
+            "color": "#E42E95",
+            "sort_index": 158,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "ebea861a-c0ae-5323-bbe0-46893a119a39",
+            "code": "DOT",
+            "name": "Polkadot",
+            "color": "#E6007A",
+            "sort_index": 159,
+            "exponent": 10,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{47,48}$"
+        },
+        {
+            "asset_id": "4f039497-3af8-5bb3-951c-6df9afa9be1c",
+            "code": "SOL",
+            "name": "Solana",
+            "color": "#9945FF",
+            "sort_index": 160,
+            "exponent": 9,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "3b6a0532-d638-58ab-b7f8-16ead09d686d",
+            "code": "CHZ",
+            "name": "Chiliz",
+            "color": "#B02728",
+            "sort_index": 161,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "31acd6f6-d560-5a59-b77d-f9fa57c19167",
+            "code": "LPT",
+            "name": "Livepeer",
+            "color": "#28CD88",
+            "sort_index": 162,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "13a06dc2-f4c7-58c1-91f0-f4ad4a867f82",
+            "code": "QNT",
+            "name": "Quant",
+            "color": "#EF4F1F",
+            "sort_index": 163,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "45ce7f01-2962-5576-8dfd-449e4a49b75d",
+            "code": "MASK",
+            "name": "Mask Network",
+            "color": "#1C68F3",
+            "sort_index": 164,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "453639be-192e-5e36-88e3-38496e542524",
+            "code": "CLV",
+            "name": "Clover Finance",
+            "color": "#99EBEF",
+            "sort_index": 165,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "be4a78af-d300-59b0-9c70-ba42a93caf56",
+            "code": "PAX",
+            "name": "Paxos Standard",
+            "color": "#2F8260",
+            "sort_index": 166,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "3672ab4a-25e0-57a8-b029-99239c081958",
+            "code": "FET",
+            "name": "Artificial Superintelligence Alliance",
+            "color": "#0A0B0D",
+            "sort_index": 167,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "7ea0bd74-3cab-5bf8-94e2-f0c0b3896f07",
+            "code": "FARM",
+            "name": "Harvest Finance",
+            "color": "#E3B160",
+            "sort_index": 168,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "045e4fab-f2ca-58a3-ac2b-8c47c5d23968",
+            "code": "ACH",
+            "name": "Alchemy Pay",
+            "color": "#2E3567",
+            "sort_index": 169,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "56f8ea19-7e6a-5e38-ac47-fc9762b955ae",
+            "code": "IOTX",
+            "name": "IoTeX",
+            "color": "#110F1C",
+            "sort_index": 170,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "7c6cf248-e06b-5426-a05d-ac2777159a11",
+            "code": "REQ",
+            "name": "Request",
+            "color": "#00E6A0",
+            "sort_index": 171,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "b76225e9-3cff-5c6f-88a2-2490f70cb02e",
+            "code": "AXS",
+            "name": "Axie Infinity",
+            "color": "#0055D5",
+            "sort_index": 172,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "248c3984-79c8-5df2-a35d-bbd3a3e16e70",
+            "code": "TRU",
+            "name": "TrueFi",
+            "color": "#1A5AFF",
+            "sort_index": 173,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "95c91657-a486-5b3f-a6e4-d0831331dcd1",
+            "code": "COTI",
+            "name": "COTI",
+            "color": "#229FD0",
+            "sort_index": 174,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "aa75e77c-c936-58a2-9d3c-afb7f23886e1",
+            "code": "RAD",
+            "name": "Radworks",
+            "color": "#535AF6",
+            "sort_index": 175,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "36d68172-0e1b-5a94-845a-a1e4e1022b75",
+            "code": "XYO",
+            "name": "XYO",
+            "color": "#7589A5",
+            "sort_index": 176,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "14364054-394d-5135-a4a8-526e9a8deacd",
+            "code": "BTRST",
+            "name": "Braintrust",
+            "color": "#1A1A1D",
+            "sort_index": 177,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "ef343d07-52fe-5fee-88ad-ddf1a9e2d852",
+            "code": "ZEN",
+            "name": "Horizen",
+            "color": "#FECB17",
+            "sort_index": 178,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "d6031388-71ab-59c7-8a15-a56ec20d6080",
+            "code": "SHIB",
+            "name": "SHIBA INU",
+            "color": "#1C2951",
+            "sort_index": 179,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "9941a614-00ea-5d1c-bfdf-efdc4c1e58e0",
+            "code": "AGLD",
+            "name": "Adventure Gold",
+            "color": "#1A1A1A",
+            "sort_index": 180,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "9d06e463-b3ba-5abf-9082-8761846b28ab",
+            "code": "AVAX",
+            "name": "Avalanche",
+            "color": "#E84142",
+            "sort_index": 181,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^0x[a-fA-F0-9]{40}$"
+        },
+        {
+            "asset_id": "a2b48bde-1149-5cb7-9ddb-57563bb4d63b",
+            "code": "FX",
+            "name": "Function X",
+            "color": "#181818",
+            "sort_index": 182,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "19f93d90-a629-53d3-b1c1-45b874e9f125",
+            "code": "WCFG",
+            "name": "Wrapped Centrifuge",
+            "color": "#000000",
+            "sort_index": 183,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "c148e875-86eb-5f25-adcf-a51d01120886",
+            "code": "RARI",
+            "name": "Rarible",
+            "color": "#FEDA03",
+            "sort_index": 184,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "a198c9fb-15af-500b-9e48-359843aeabd0",
+            "code": "BADGER",
+            "name": "Badger DAO",
+            "color": "#F1A23F",
+            "sort_index": 185,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "c0158cc5-1f31-5662-9da5-c06867f2baad",
+            "code": "JASMY",
+            "name": "Jasmy",
+            "color": "#F7941C",
+            "sort_index": 186,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "830f84b1-ade4-50a7-a33e-e159e136ad45",
+            "code": "PERP",
+            "name": "Perpetual Protocol",
+            "color": "#3CEAAA",
+            "sort_index": 187,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "5fcaa9b6-cea0-52af-bbd4-40c8053ef49f",
+            "code": "ARPA",
+            "name": "ARPA Chain",
+            "color": "#263145",
+            "sort_index": 188,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "fea50790-50ec-5460-9ea0-b5817de4d17e",
+            "code": "AUCTION",
+            "name": "Bounce Token",
+            "color": "#000000",
+            "sort_index": 189,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "49e1401a-48a0-58ac-881d-03ef6894a038",
+            "code": "ASM",
+            "name": "Assemble AI",
+            "color": "#0A0B0D",
+            "sort_index": 190,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "015db578-d600-5613-8736-0eec500dfc4d",
+            "code": "KRL",
+            "name": "Kryll",
+            "color": "#822077",
+            "sort_index": 191,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "1fd23f09-07b6-54eb-a200-59b2e7f5d065",
+            "code": "LCX",
+            "name": "LCX",
+            "color": "#1D357C",
+            "sort_index": 192,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "8952b259-c4e1-5947-88c2-7be991270114",
+            "code": "TRAC",
+            "name": "OriginTrail",
+            "color": "#6344DF",
+            "sort_index": 193,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "2d6b2001-dd44-5f5c-bc33-ed43d3e3c8f0",
+            "code": "CRO",
+            "name": "Cronos",
+            "color": "#1D3F65",
+            "sort_index": 194,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "bfb347d2-9510-5a8f-8aed-001fd3e1131d",
+            "code": "SUKU",
+            "name": "SUKU",
+            "color": "#1C1C1C",
+            "sort_index": 195,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "7a35374a-479b-4d5a-b0af-5824224a8743",
+            "code": "ENS",
+            "name": "Ethereum Name Service",
+            "color": "#00C389",
+            "sort_index": 196,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "c312e620-7011-59bc-93b5-9c03832ce252",
+            "code": "ALCX",
+            "name": "Alchemix",
+            "color": "#1B1619",
+            "sort_index": 197,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "7e7828ba-1b70-56ce-be2d-0a155c9eff82",
+            "code": "POWR",
+            "name": "Powerledger",
+            "color": "#1FDBE2",
+            "sort_index": 198,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "5dd73cfd-42bf-4383-8263-af3130198de6",
+            "code": "BICO",
+            "name": "BICONOMY (BICO)",
+            "color": "#E94300",
+            "sort_index": 199,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "a1f72e0a-bb57-5504-8ed8-d8362e543b5f",
+            "code": "IDEX",
+            "name": "IDEX",
+            "color": "#7A4CDD",
+            "sort_index": 200,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "963d6e5a-b08c-59d9-9ed0-d616c6c5dd4b",
+            "code": "POLS",
+            "name": "Polkastarter",
+            "color": "#FF3465",
+            "sort_index": 201,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "17278d3a-ecf4-584f-abe1-903f2b06aad5",
+            "code": "FOX",
+            "name": "Shapeshift FOX Token",
+            "color": "#386FF9",
+            "sort_index": 202,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "9f1b558c-cdd3-5ffe-9d69-0e34a62e82a7",
+            "code": "SUPER",
+            "name": "SuperVerse",
+            "color": "#72F395",
+            "sort_index": 203,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "43effdcf-ee0b-5b00-bba7-271865f42c33",
+            "code": "SPELL",
+            "name": "Spell Token",
+            "color": "#211A45",
+            "sort_index": 204,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "fc728438-099c-55f2-b3bf-e50452e78157",
+            "code": "BLZ",
+            "name": "Bluzelle",
+            "color": "#1CD8D2",
+            "sort_index": 205,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "76989be1-d882-599a-82ac-bb3b2e2a7db3",
+            "code": "MDT",
+            "name": "Measurable Data Token",
+            "color": "#4187F7",
+            "sort_index": 206,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "4e181288-ccce-562d-8c4f-787afa655204",
+            "code": "API3",
+            "name": "Api3",
+            "color": "#1F267B",
+            "sort_index": 207,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "c9b055af-2d25-49b3-b449-42bec9846a30",
+            "code": "GODS",
+            "name": "Gods Unchained",
+            "color": "#2499B3",
+            "sort_index": 208,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "1143be59-e5ec-4942-8c39-1c3424499ae0",
+            "code": "IMX",
+            "name": "Immutable",
+            "color": "#17B5CB",
+            "sort_index": 209,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "b84ad585-cbf9-48a5-91fb-bc35c9dcca14",
+            "code": "GFI",
+            "name": "Goldfinch Protocol",
+            "color": "#483E5E",
+            "sort_index": 210,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "8943ba88-a949-5ba2-b7c0-4e30f8208bac",
+            "code": "LQTY",
+            "name": "Liquity",
+            "color": "#1542CD",
+            "sort_index": 211,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "ba3dd7df-6c9c-52cf-b0ba-829b1dba63c9",
+            "code": "PRO",
+            "name": "Propy",
+            "color": "#38A6FA",
+            "sort_index": 212,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "29f11294-d51f-5f60-8e8b-e5c23ca3ea22",
+            "code": "INV",
+            "name": "Inverse Finance",
+            "color": "#201D3D",
+            "sort_index": 213,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "37b43246-7803-559e-b4b6-5ba73f137d22",
+            "code": "NCT",
+            "name": "PolySwarm",
+            "color": "#6D3AEC",
+            "sort_index": 214,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "25c25663-7d03-5fd5-b8fb-31aa596d5a0d",
+            "code": "STX",
+            "name": "Stacks",
+            "color": "#FC6432",
+            "sort_index": 215,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^(SP|SM)([0123456789ABCDEFGHJKMNPQRSTVWXYZ]{38}|[0123456789ABCDEFGHJKMNPQRSTVWXYZ]{39})$",
+            "destination_tag_name": "STX Memo",
+            "destination_tag_regex": "^.{0,34}$"
+        },
+        {
+            "asset_id": "31e33a5d-2ee0-51ae-b172-51163e486230",
+            "code": "SHPING",
+            "name": "SHPING",
+            "color": "#FE3357",
+            "sort_index": 216,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "6e8a50fb-9270-52aa-9261-86bf9fa8b2ec",
+            "code": "CTX",
+            "name": "Cryptex Finance",
+            "color": "#1D1D3C",
+            "sort_index": 217,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "b7ecf251-60ee-5aa6-8271-2b946cc58edd",
+            "code": "PLU",
+            "name": "Pluton",
+            "color": "#F5EFDF",
+            "sort_index": 218,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "d8d9de8a-d13b-57bc-99cb-b1d546f820d6",
+            "code": "DIA",
+            "name": "DIA",
+            "color": "#6666FF",
+            "sort_index": 219,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "ba24ad7b-0a8b-533d-816b-e693d9f8a871",
+            "code": "ORCA",
+            "name": "Orca",
+            "color": "#000000",
+            "sort_index": 220,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "3a92fbde-9bb9-51ee-a994-f52c78837be5",
+            "code": "FIDA",
+            "name": "Bonfida",
+            "color": "#6868FC",
+            "sort_index": 221,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "b0115e95-4015-5352-9931-da8f6bbf91e6",
+            "code": "AVT",
+            "name": "Aventus",
+            "color": "#5100FF",
+            "sort_index": 222,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "e1c4777e-0377-5ccd-be1e-fdb757acb297",
+            "code": "ALICE",
+            "name": "MyNeighborAlice",
+            "color": "#DC8898",
+            "sort_index": 223,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "4823e87c-2f86-5fb3-81e8-46b6365e83df",
+            "code": "AERGO",
+            "name": "Aergo",
+            "color": "#FB007E",
+            "sort_index": 224,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "016a52e7-91fb-5d8b-84b3-a213a66068cb",
+            "code": "ERN",
+            "name": "Ethernity Chain",
+            "color": "#0667D0",
+            "sort_index": 225,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "ed556ed5-2805-5511-9f26-bb1c27d1717c",
+            "code": "AIOZ",
+            "name": "AIOZ Network",
+            "color": "#6CD28E",
+            "sort_index": 226,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "6f3a09bb-bd98-4451-bbfa-a4d7604828ea",
+            "code": "HIGH",
+            "name": "Highstreet",
+            "color": "#4683FB",
+            "sort_index": 227,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "aa0a157e-a9df-4467-9ee8-36eaa99df1c8",
+            "code": "GLM",
+            "name": "Golem",
+            "color": "#001D57",
+            "sort_index": 228,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "e42fb72f-2d7d-4a2c-803e-a5d87c40963b",
+            "code": "APE",
+            "name": "ApeCoin",
+            "color": "#0442BE",
+            "sort_index": 229,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "a4ffc575-942c-5e26-b70c-cb3befdd4229",
+            "code": "MINA",
+            "name": "Mina",
+            "color": "#EA6B48",
+            "sort_index": 230,
+            "exponent": 9,
+            "type": "crypto",
+            "address_regex": "^(B62)[A-Za-z0-9]{52}$"
+        },
+        {
+            "asset_id": "bfbc233f-5477-554b-8e9e-fd926406596d",
+            "code": "ROSE",
+            "name": "Oasis Network",
+            "color": "#0293F6",
+            "sort_index": 231,
+            "exponent": 9,
+            "type": "crypto",
+            "address_regex": "^oasis1[02-9ac-hj-np-z]{6,}$"
+        },
+        {
+            "asset_id": "eafbbb96-8d35-4f42-99b6-a4779660442f",
+            "code": "GMT",
+            "name": "STEPN",
+            "color": "#E6BC7B",
+            "sort_index": 232,
+            "exponent": 9,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "dd391a26-4402-478f-950c-2af0178527b5",
+            "code": "GST",
+            "name": "Green Satoshi Token",
+            "color": "#ABA3B1",
+            "sort_index": 233,
+            "exponent": 9,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "77b5b147-5813-535b-a2a5-db712a213715",
+            "code": "FLOW",
+            "name": "Flow",
+            "color": "#00EF8B",
+            "sort_index": 234,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^0x[a-fA-F0-9]{16}$"
+        },
+        {
+            "asset_id": "9c5f6f8e-b912-5516-9ae5-a0670be7f541",
+            "code": "SAND",
+            "name": "The Sandbox",
+            "color": "#00AEEF",
+            "sort_index": 235,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "627b8bbb-9908-41be-87a8-1c9c87b6c5e7",
+            "code": "OP",
+            "name": "Optimism",
+            "color": "#FF0420",
+            "sort_index": 236,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "b9ec935a-0de3-5071-a28c-6a40104d30b4",
+            "code": "KSM",
+            "name": "Kusama",
+            "color": "#0A0B0D",
+            "sort_index": 237,
+            "exponent": 12,
+            "type": "crypto",
+            "address_regex": "^[A-Z][1-9A-HJ-NP-Za-km-z]{46,47}$"
+        },
+        {
+            "asset_id": "ebf4b864-b429-533f-bf13-16e1aa9f49dd",
+            "code": "C98",
+            "name": "Coin98",
+            "color": "#D9B432",
+            "sort_index": 238,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "eb7c958f-2f43-5afb-b743-e61a4a90092d",
+            "code": "INDEX",
+            "name": "Index Cooperative",
+            "color": "#0A0B0D",
+            "sort_index": 239,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "5829e0da-1c40-4c5c-b123-019116d44f10",
+            "code": "FORT",
+            "name": "Forta",
+            "color": "#0A0B0D",
+            "sort_index": 240,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "748257f0-fb9c-5f0d-8a4b-f6402051b7fd",
+            "code": "POND",
+            "name": "Marlin",
+            "color": "#2DB8E3",
+            "sort_index": 241,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "c4872eef-36a7-50bf-9450-510a9405edf9",
+            "code": "FIS",
+            "name": "StaFi",
+            "color": "#23292F",
+            "sort_index": 242,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "23cd23c2-ba2c-5343-af47-cb3cefa17f37",
+            "code": "ALEPH",
+            "name": "Aleph Cloud",
+            "color": "#141327",
+            "sort_index": 243,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "bdf737d1-72d5-553f-b1a1-d70e27dba482",
+            "code": "MATH",
+            "name": "MATH",
+            "color": "#0A0B0D",
+            "sort_index": 244,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "a04e1e05-168c-5726-81fe-6e55d2352b15",
+            "code": "HOPR",
+            "name": "HOPR",
+            "color": "#FFFEAB",
+            "sort_index": 245,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "b8bd76e1-97cf-5c8c-be55-8b26843bd4f9",
+            "code": "ELA",
+            "name": "Elastos",
+            "color": "#B04200",
+            "sort_index": 246,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "6a9b98f5-5902-5379-8adb-7364490e7cdd",
+            "code": "MUSE",
+            "name": "Muse",
+            "color": "#6ADAD7",
+            "sort_index": 247,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "426f088e-76ef-5593-a45f-ff638522fd16",
+            "code": "TIME",
+            "name": "Chrono.tech",
+            "color": "#6C85F7",
+            "sort_index": 248,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "6aa3f777-23da-578b-91e6-08a33c5b70b5",
+            "code": "DEXT",
+            "name": "DEXTools",
+            "color": "#00B1CF",
+            "sort_index": 249,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "f1d6e426-c6a4-5cf8-b832-a8e877439a3e",
+            "code": "METIS",
+            "name": "Metis",
+            "color": "#00D2FF",
+            "sort_index": 250,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "c7b9f5bb-e4a4-48b2-89df-0be386ed83a6",
+            "code": "XCN",
+            "name": "Onyxcoin",
+            "color": "#161A1F",
+            "sort_index": 251,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "286c7042-9314-435f-936b-d708ba11a59d",
+            "code": "BOBA",
+            "name": "Boba Network",
+            "color": "#AEDB01",
+            "sort_index": 252,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "7a1e328d-6acc-560f-9789-bbce4c570f45",
+            "code": "AST",
+            "name": "AirSwap",
+            "color": "#2B71FF",
+            "sort_index": 253,
+            "exponent": 4,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "63d08c0c-c705-59d9-9cd0-927803fdff7d",
+            "code": "SWFTC",
+            "name": "SwftCoin",
+            "color": "#B98318",
+            "sort_index": 254,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "90f65914-63bf-5101-b9e7-b58bc1f42b5d",
+            "code": "GNO",
+            "name": "Gnosis",
+            "color": "#009BB3",
+            "sort_index": 255,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "3e0240e8-b40f-5a1e-9495-1490a122d4bf",
+            "code": "ABT",
+            "name": "Arcblock",
+            "color": "#81F7FB",
+            "sort_index": 256,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "431d70b2-be25-551b-83f9-a61e90b5d892",
+            "code": "RARE",
+            "name": "SuperRare",
+            "color": "#0A0B0D",
+            "sort_index": 257,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "bd07f41c-1cc2-4d51-8fa6-d3c957ca0370",
+            "code": "LOKA",
+            "name": "League of Kingdoms Arena",
+            "color": "#116CFE",
+            "sort_index": 258,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "dc8930f5-133d-4265-91d5-9e5d2d453013",
+            "code": "STG",
+            "name": "Stargate Finance",
+            "color": "#0A0B0D",
+            "sort_index": 259,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "322ae040-e3a8-52b8-a5eb-3026ed9b9f71",
+            "code": "CELR",
+            "name": "Celer Network",
+            "color": "#000000",
+            "sort_index": 260,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "161f5d0a-1657-4300-b072-3f9cb4d6bdad",
+            "code": "CBETH",
+            "name": "Coinbase Wrapped Staked ETH",
+            "color": "#0052FF",
+            "sort_index": 261,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "979a75c9-9466-5e6b-9545-930a89a3db8f",
+            "code": "NEAR",
+            "name": "NEAR Protocol",
+            "color": "#24272A",
+            "sort_index": 262,
+            "exponent": 16,
+            "type": "crypto",
+            "address_regex": "^(([a-z\\d]+[\\-_])*[a-z\\d]+\\.)*([a-z\\d]+[\\-_])*[a-z\\d]+$"
+        },
+        {
+            "asset_id": "b695018e-a840-42e2-8f1f-db59efd95eb1",
+            "code": "AURORA",
+            "name": "Aurora",
+            "color": "#8FD360",
+            "sort_index": 263,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "dc4be333-d4b3-5ba4-94ac-7f8570ed93a2",
+            "code": "CVX",
+            "name": "Convex Finance",
+            "color": "#3A3A3A",
+            "sort_index": 264,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "27ade651-5bbc-57d2-b087-60171ae9d337",
+            "code": "OCEAN",
+            "name": "Ocean Protocol",
+            "color": "#121212",
+            "sort_index": 265,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "347497c3-a460-5324-994b-58a331c64ac0",
+            "code": "PUNDIX",
+            "name": "Pundi X (New)",
+            "color": "#F7D409",
+            "sort_index": 266,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "0d150a7d-821e-5ca4-a17e-17f206668ecd",
+            "code": "INJ",
+            "name": "Injective",
+            "color": "#00B8FC",
+            "sort_index": 267,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "9389bdc0-7061-5a8c-97db-3de40cc0a951",
+            "code": "PNG",
+            "name": "Pangolin",
+            "color": "#FFC800",
+            "sort_index": 268,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^0x[a-fA-F0-9]{40}$"
+        },
+        {
+            "asset_id": "ffdece68-6dd9-4783-b778-b11104b2126e",
+            "code": "00",
+            "name": "00 Token",
+            "color": "#0A0B0D",
+            "sort_index": 269,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "f13ce9c6-617f-5d85-901c-c6affcde9416",
+            "code": "ILV",
+            "name": "Illuvium",
+            "color": "#CD32A4",
+            "sort_index": 270,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "60eb9c6e-ad04-54d5-bb2a-574f9fdb7786",
+            "code": "HBAR",
+            "name": "Hedera",
+            "color": "#0A0B0D",
+            "sort_index": 271,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(0|(?:[1-9]\\d*))\\.(0|(?:[1-9]\\d*))\\.(0|(?:[1-9]\\d*))$|(0x1220[0-9a-f]{64})$",
+            "destination_tag_name": "HBAR Memo",
+            "destination_tag_regex": "^.{1,100}$"
+        },
+        {
+            "asset_id": "976e5f1e-e419-4eac-990e-76caf525c6af",
+            "code": "APT",
+            "name": "Aptos",
+            "color": "#6AD5AA",
+            "sort_index": 272,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(0x)?[0-9A-Fa-f]{64}$"
+        },
+        {
+            "asset_id": "afb7c221-a5f4-4ddd-ba23-61e627dad8b6",
+            "code": "WAXL",
+            "name": "Wrapped Axelar",
+            "color": "#0A0B0D",
+            "sort_index": 273,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "147c2535-ea2e-472b-8816-ee7305a99b16",
+            "code": "MSOL",
+            "name": "Marinade Staked SOL",
+            "color": "#4B8B89",
+            "sort_index": 274,
+            "exponent": 9,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "222c1961-14c6-428a-afc4-bb2e1ece75e9",
+            "code": "MNDE",
+            "name": "Marinade",
+            "color": "#0C9790",
+            "sort_index": 275,
+            "exponent": 9,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "c8c774bb-6f96-46de-bd05-6f6f9744f21f",
+            "code": "HFT",
+            "name": "Hashflow",
+            "color": "#0A0B0D",
+            "sort_index": 276,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "2d658fea-6082-59a2-86f4-b0f79a8bfc72",
+            "code": "LDO",
+            "name": "Lido DAO Token",
+            "color": "#F69988",
+            "sort_index": 277,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "3ff79649-7c62-5236-8466-0e2207ad43d6",
+            "code": "QI",
+            "name": "BENQI",
+            "color": "#4FAFE7",
+            "sort_index": 278,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^0x[a-fA-F0-9]{40}$"
+        },
+        {
+            "asset_id": "1ce4c6c4-2f02-5126-b60b-8f839d79f443",
+            "code": "PYR",
+            "name": "Vulcan Forged PYR",
+            "color": "#F69E23",
+            "sort_index": 279,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "bcb2ab07-bb8a-5e68-a4e9-a7bf971877d3",
+            "code": "GHST",
+            "name": "Aavegotchi",
+            "color": "#CF15F9",
+            "sort_index": 280,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "e584e190-2ea2-5d67-b1b7-15222b94933c",
+            "code": "EGLD",
+            "name": "MultiversX",
+            "color": "#000000",
+            "sort_index": 281,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^erd1[0-9a-z]{58}$"
+        },
+        {
+            "asset_id": "a8f61947-fb51-462e-b133-6157809faf2c",
+            "code": "MAGIC",
+            "name": "MAGIC",
+            "color": "#CB3A31",
+            "sort_index": 282,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "79719406-aada-56c0-8194-65ef670e823b",
+            "code": "RPL",
+            "name": "Rocket Pool",
+            "color": "#FF9774",
+            "sort_index": 283,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "1fb6e9bd-293e-547b-909f-dea89d755d4b",
+            "code": "KAVA",
+            "name": "Kava",
+            "color": "#FF564F",
+            "sort_index": 284,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^kava1[ac-hj-np-z02-9]{38}$",
+            "destination_tag_name": "KAVA Memo",
+            "destination_tag_regex": "^.{1,256}$"
+        },
+        {
+            "asset_id": "69dd7ce5-6123-4bd0-9f10-1b334198fe87",
+            "code": "T",
+            "name": "Threshold",
+            "color": "#754BE5",
+            "sort_index": 285,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "79691bcf-5c2d-54d0-bef9-ea0f128a472b",
+            "code": "AUDIO",
+            "name": "Audius",
+            "color": "#D01FCE",
+            "sort_index": 286,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "14a1e32e-ca36-426f-83f3-6d8d8e9aa423",
+            "code": "AXL",
+            "name": "Axelar",
+            "color": "#0A0B0D",
+            "sort_index": 287,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^(axelar1)([a-z\\d]{38}|[a-z\\d]{58})$",
+            "destination_tag_name": "AXL Memo",
+            "destination_tag_regex": "^.{1,256}$"
+        },
+        {
+            "asset_id": "5d0dacd0-0908-4f62-a9c7-670db0c0795d",
+            "code": "VOXEL",
+            "name": "Voxies",
+            "color": "#0A69F4",
+            "sort_index": 288,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "29bb92f9-0020-49f6-af54-9e69f5ead9bb",
+            "code": "BLUR",
+            "name": "Blur",
+            "color": "#FF6E26",
+            "sort_index": 289,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "d14e31fc-06e2-4f0f-a2f9-e6b48acf6b58",
+            "code": "ACS",
+            "name": "Access",
+            "color": "#6590FF",
+            "sort_index": 290,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "3dff392e-5818-405e-8224-553c5ae9bd2c",
+            "code": "PRIME",
+            "name": "Echelon Prime",
+            "color": "#0A0B0D",
+            "sort_index": 291,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "1a4ff613-d32e-4a44-93a1-4db0b5182296",
+            "code": "LSETH",
+            "name": "Liquid Staked ETH",
+            "color": "#DDE582",
+            "sort_index": 292,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "c2102278-2bbe-49e1-a115-5e83bffbcead",
+            "code": "ARB",
+            "name": "Arbitrum",
+            "color": "#12AAFF",
+            "sort_index": 293,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "d609dc77-9a9e-4fd7-bcfc-2728acc578f9",
+            "code": "FLR",
+            "name": "Flare",
+            "color": "#E62058",
+            "sort_index": 294,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^0x[a-fA-F0-9]{40}$"
+        },
+        {
+            "asset_id": "c998b825-ac60-4414-b960-6111abb81a53",
+            "code": "DIMO",
+            "name": "DIMO",
+            "color": "#0A0B0D",
+            "sort_index": 295,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "d32168e6-5e00-583b-995b-f44f1a1579e4",
+            "code": "SPA",
+            "name": "Sperax",
+            "color": "#31C1BF",
+            "sort_index": 296,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "26417fbc-f542-417a-9596-5a6065b76b78",
+            "code": "SUI",
+            "name": "SUI",
+            "color": "#81BAEB",
+            "sort_index": 297,
+            "exponent": 9,
+            "type": "crypto",
+            "address_regex": "^0x[\\da-f]{64}$"
+        },
+        {
+            "asset_id": "eb98bd40-6668-4ee1-aaa5-7de8155dd69f",
+            "code": "OSMO",
+            "name": "Osmosis",
+            "color": "#1A154F",
+            "sort_index": 298,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^(osmo1)([a-z\\d]{38}|[a-z\\d]{58})$",
+            "destination_tag_name": "OSMO Memo",
+            "destination_tag_regex": "^.{1,256}$"
+        },
+        {
+            "asset_id": "e966aebc-34ac-516c-8173-bc6b1e807b8e",
+            "code": "HNT",
+            "name": "Helium",
+            "color": "#474DFF",
+            "sort_index": 299,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "64e81cab-1cee-4950-b1fd-773efa4acfa9",
+            "code": "SEI",
+            "name": "Sei",
+            "color": "#9C0910",
+            "sort_index": 300,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^(sei1)([a-z\\d]{38}|[a-z\\d]{58})$",
+            "destination_tag_name": "SEI Memo",
+            "destination_tag_regex": "^.{1,256}$"
+        },
+        {
+            "asset_id": "080bd13e-ebb2-4e3b-8727-fd5cd4cc7f4c",
+            "code": "PYUSD",
+            "name": "PayPal USD",
+            "color": "#007CE3",
+            "sort_index": 301,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "3212e00d-e1c8-5776-89d7-50551b5c42d9",
+            "code": "VET",
+            "name": "vechain",
+            "color": "#82BE00",
+            "sort_index": 302,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^0x[0-9A-Fa-f]{40}$"
+        },
+        {
+            "asset_id": "e7edd2ae-4098-543a-a7ca-c733404cc788",
+            "code": "VTHO",
+            "name": "VeThor Token",
+            "color": "#82BE00",
+            "sort_index": 303,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^0x[0-9A-Fa-f]{40}$"
+        },
+        {
+            "asset_id": "5b944bdc-bb99-486b-8094-cc2c50eb5884",
+            "code": "VARA",
+            "name": "Vara",
+            "color": "#00FFC4",
+            "sort_index": 304,
+            "exponent": 12,
+            "type": "crypto",
+            "address_regex": "^kG[1-9A-HJ-NP-Za-km-z]{47}$"
+        },
+        {
+            "asset_id": "283e4b74-7913-46ff-93f5-8a8274a910c7",
+            "code": "BIGTIME",
+            "name": "Big Time",
+            "color": "#686868",
+            "sort_index": 305,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "72ed7be3-3583-48df-b756-e6f1b4c940a2",
+            "code": "TIA",
+            "name": "Celestia",
+            "color": "#7130F0",
+            "sort_index": 306,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^(celestia1)([a-z\\d]{38}|[a-z\\d]{58})$",
+            "destination_tag_name": "TIA Memo",
+            "destination_tag_regex": "^.{1,256}$"
+        },
+        {
+            "asset_id": "79542a5a-65c0-42e5-bf00-f5295b1ae615",
+            "code": "JTO",
+            "name": "Jito",
+            "color": "#0A0B0D",
+            "sort_index": 307,
+            "exponent": 9,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "9fcf04ac-a37b-416b-8a87-a4fe5702ae41",
+            "code": "SEAM",
+            "name": "Seamless",
+            "color": "#0A0B0D",
+            "sort_index": 308,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "4def86bf-6bf0-4cd0-9194-aa58e107d38a",
+            "code": "BONK",
+            "name": "Bonk",
+            "color": "#F8A506",
+            "sort_index": 309,
+            "exponent": 5,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "f629b825-84d1-465d-a9c1-9ba88087595a",
+            "code": "HONEY",
+            "name": "Hivemapper",
+            "color": "#5574DE",
+            "sort_index": 310,
+            "exponent": 9,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "48456872-2ff7-4cc3-8fe9-c101d0fb073c",
+            "code": "ONDO",
+            "name": "Ondo Finance",
+            "color": "#4F38F7",
+            "sort_index": 311,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "2e0cdd2a-0331-4fec-aefb-eefa25ea593a",
+            "code": "ZETA",
+            "name": "Zetachain",
+            "color": "#1D4A3A",
+            "sort_index": 312,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "5defc2a7-682c-41a5-89d4-049044cc00b8",
+            "code": "VELO",
+            "name": "Velodrome Finance",
+            "color": "#5E93FF",
+            "sort_index": 313,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "9476e3be-b731-47fa-82be-347fabc573d9",
+            "code": "AERO",
+            "name": "Aerodrome Finance",
+            "color": "#0433FF",
+            "sort_index": 314,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "3de8521a-e98d-48d9-b5ca-503549dddec8",
+            "code": "RENDER",
+            "name": "Render",
+            "color": "#CF1011",
+            "sort_index": 315,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "9e813e60-2d0f-4e60-a57e-327cecab767f",
+            "code": "STRK",
+            "name": "Starknet Token",
+            "color": "#29296E",
+            "sort_index": 316,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "b52c2df1-06c7-5ac1-81e4-fa69b39599a2",
+            "code": "AKT",
+            "name": "Akash Network",
+            "color": "#ED3524",
+            "sort_index": 317,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^(akash1)([a-z\\d]{38}|[a-z\\d]{58})$",
+            "destination_tag_name": "AKASH Memo",
+            "destination_tag_regex": "^.{1,256}$"
+        },
+        {
+            "asset_id": "d107da38-6067-4ece-8419-fa87b647153e",
+            "code": "RONIN",
+            "name": "Ronin",
+            "color": "#004DE5",
+            "sort_index": 318,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^0x[0-9A-Fa-f]{40}$"
+        },
+        {
+            "asset_id": "639886aa-61b7-44f9-a268-a1d6183a07d3",
+            "code": "ARKM",
+            "name": "Arkham",
+            "color": "#000000",
+            "sort_index": 319,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "20ddf7d2-f3d7-4a65-bb95-7bab3f86b11e",
+            "code": "TNSR",
+            "name": "Tensor",
+            "color": "#111314",
+            "sort_index": 320,
+            "exponent": 9,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "e7f35ea9-d390-4a48-8b8c-212d52131a37",
+            "code": "SHDW",
+            "name": "Shadow Token",
+            "color": "#11FA98",
+            "sort_index": 321,
+            "exponent": 9,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "6dc382ef-e47e-4a6a-a370-a7836fba2571",
+            "code": "OMNI",
+            "name": "Omni Network",
+            "color": "#2B62F6",
+            "sort_index": 322,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "5671503a-afbe-406b-834d-94b6e9b3afc2",
+            "code": "KARRAT",
+            "name": "Karrat",
+            "color": "#EBBB58",
+            "sort_index": 323,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "ac3738c2-d051-4049-9f71-6760467b131c",
+            "code": "SAFE",
+            "name": "Safe",
+            "color": "#12FF80",
+            "sort_index": 324,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "7feef29b-ebee-427f-8a76-6f2a53cb6742",
+            "code": "NEON",
+            "name": "Neon EVM",
+            "color": "#DF42AB",
+            "sort_index": 325,
+            "exponent": 9,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "f4249e6b-0ebc-4dd8-b897-e54c52efbcad",
+            "code": "DRIFT",
+            "name": "Drift Protocol",
+            "color": "#976BED",
+            "sort_index": 326,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "9d9edbac-beb4-4139-8a42-565d7f910cec",
+            "code": "PIRATE",
+            "name": "Pirate Nation Token",
+            "color": "#EB8C24",
+            "sort_index": 327,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "30f72cc7-2197-4da5-8cf8-40e86a678ce0",
+            "code": "ZRO",
+            "name": "LayerZero",
+            "color": "#0A0A0A",
+            "sort_index": 328,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "674c6343-41a8-4b79-8914-21762877e907",
+            "code": "EURC",
+            "name": "EURC",
+            "color": "#4E7EF7",
+            "sort_index": 329,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "c8104d28-b0ff-425b-9f16-d7360b61008f",
+            "code": "CORECHAIN",
+            "name": "Core",
+            "color": "#FF9211",
+            "sort_index": 330,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^0x[0-9A-Fa-f]{40}$"
+        },
+        {
+            "asset_id": "e93ddb9d-1af8-418b-a9d4-3b048cf65331",
+            "code": "BLAST",
+            "name": "Blast",
+            "color": "#0A0B0D",
+            "sort_index": 331,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "88a44ba5-db4a-4403-bb75-0769c4d955c4",
+            "code": "A8",
+            "name": "Ancient8",
+            "color": "#BAE573",
+            "sort_index": 332,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "245f9b2e-5c48-4b41-9fe7-40a0c898bbd5",
+            "code": "LRDS",
+            "name": "Blocklords",
+            "color": "#D04711",
+            "sort_index": 333,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "2c6fffe5-5e85-48ae-9e37-fb4dc549d16c",
+            "code": "SD",
+            "name": "Stader",
+            "color": "#07C166",
+            "sort_index": 334,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "5ebf1734-ed70-4b67-9372-e938d7ede152",
+            "code": "G",
+            "name": "Gravity",
+            "color": "#CB7640",
+            "sort_index": 335,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "c4e5d692-0d9d-4996-a3e7-f66d2b30e192",
+            "code": "ACX",
+            "name": "Across Protocol",
+            "color": "#6CF9D8",
+            "sort_index": 336,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "32d0ed81-fd18-4d9e-9557-74ccf153f767",
+            "code": "POL",
+            "name": "Polygon Ecosystem Token",
+            "color": "#6C00F6",
+            "sort_index": 337,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "4199e1ed-1d0a-4ba1-b075-b2081704e219",
+            "code": "ALEO",
+            "name": "Aleo",
+            "color": "#0A0B0D",
+            "sort_index": 338,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^aleo1[a-z0-9]{58}$"
+        },
+        {
+            "asset_id": "0b254460-55ee-4b22-b00b-e6890060d35b",
+            "code": "ZK",
+            "name": "ZKsync",
+            "color": "#0A0B0D",
+            "sort_index": 339,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "a6a6903f-abad-4b5c-931f-ca1e7d414e8d",
+            "code": "COW",
+            "name": "CoW Protocol",
+            "color": "#544003",
+            "sort_index": 340,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "e5d89806-180a-4de7-b9a6-d248bbc571f3",
+            "code": "ZETACHAIN",
+            "name": "Zetachain",
+            "color": "#1D4A3A",
+            "sort_index": 341,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(zeta1)([a-z\\d]{38}|[a-z\\d]{58})$",
+            "destination_tag_name": "ZETACHAIN Memo",
+            "destination_tag_regex": "^.{1,256}$"
+        },
+        {
+            "asset_id": "5b6770c1-c8f3-4141-ad63-79878ee2466a",
+            "code": "WELL",
+            "name": "Moonwell",
+            "color": "#3B72D3",
+            "sort_index": 342,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "221b58af-dc93-4c58-b919-2c726a86c3db",
+            "code": "EIGEN",
+            "name": "EigenLayer",
+            "color": "#1A0C6D",
+            "sort_index": 343,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "ffa1ac28-a3ed-4cd0-a2d4-f9e17f1ebb1e",
+            "code": "IO",
+            "name": "io.net",
+            "color": "#0A0B0D",
+            "sort_index": 344,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "2f7b2bdd-984c-4858-b379-50587e6e8758",
+            "code": "DEGEN",
+            "name": "Degen",
+            "color": "#472A91",
+            "sort_index": 345,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "83ad9d5e-fb8a-4d8c-94d7-9e87a7988acd",
+            "code": "SWELL",
+            "name": "SWELL",
+            "color": "#2247CF",
+            "sort_index": 346,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "dd47f029-47a9-4a1c-b379-fe4d4a8002a1",
+            "code": "PEPE",
+            "name": "Pepe",
+            "color": "#4C9641",
+            "sort_index": 347,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "b4e47296-5d36-48ef-9f6e-c61789d516fd",
+            "code": "WIF",
+            "name": "dogwifhat",
+            "color": "#89493B",
+            "sort_index": 348,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "58ddac1f-701a-5ae9-a5ac-fc4a5461a7ec",
+            "code": "FLOKI",
+            "name": "FLOKI",
+            "color": "#F79422",
+            "sort_index": 349,
+            "exponent": 9,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "9c0fa738-0966-4039-99f5-50276fcbcc71",
+            "code": "MOODENG",
+            "name": "Moo Deng",
+            "color": "#7C513E",
+            "sort_index": 350,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "6eba8923-0fc8-48f8-9ca5-bdb85aa3548d",
+            "code": "MOG",
+            "name": "Mog Coin",
+            "color": "#1939D3",
+            "sort_index": 351,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "592c1add-b548-4919-b8c7-a1df19ca5f6d",
+            "code": "ME",
+            "name": "Magic Eden",
+            "color": "#E42575",
+            "sort_index": 352,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "2add9627-a59b-47b3-89b7-b9350b9b2285",
+            "code": "GIGA",
+            "name": "Gigachad",
+            "color": "#353535",
+            "sort_index": 353,
+            "exponent": 5,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "032a8a1c-5a31-42d1-955e-32555bbff38d",
+            "code": "TURBO",
+            "name": "Turbo",
+            "color": "#DA8E2E",
+            "sort_index": 354,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "5471a689-0739-4ed4-864b-5e626edd8602",
+            "code": "PRCL",
+            "name": "Parcl",
+            "color": "#0A0B0D",
+            "sort_index": 355,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "4a79fa81-8b3c-43b6-b769-c96a8996dbc2",
+            "code": "PNUT",
+            "name": "Peanut the Squirrel",
+            "color": "#6A3314",
+            "sort_index": 356,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "06824a6f-fc8c-4fcd-b9fa-46e3f7d06471",
+            "code": "TRUMP",
+            "name": "OFFICIAL TRUMP",
+            "color": "#E3CE82",
+            "sort_index": 357,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "f7ec1efa-2fa0-49cb-8b9a-5a759a0e4d78",
+            "code": "TOSHI",
+            "name": "Toshi",
+            "color": "#0052FF",
+            "sort_index": 358,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "ef740ea7-6e2c-4e63-a6db-ade49be190d2",
+            "code": "VVV",
+            "name": "Venice Token",
+            "color": "#DD3300",
+            "sort_index": 359,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "bf1b70dd-ad5e-435d-bbef-72a189a32ac3",
+            "code": "ETHFI",
+            "name": "ether.fi",
+            "color": "#31188A",
+            "sort_index": 360,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "7e7a2022-47fe-42d2-89bf-1f35356b2493",
+            "code": "BERA",
+            "name": "Berachain",
+            "color": "#814625",
+            "sort_index": 361,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^0x[a-fA-F0-9]{40}$"
+        },
+        {
+            "asset_id": "ec3351c0-ec01-44c8-9388-89077afce939",
+            "code": "B3",
+            "name": "B3 (Base)",
+            "color": "#3368EF",
+            "sort_index": 362,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "9165a7f2-f441-480f-9af9-a51167fe3d40",
+            "code": "IP",
+            "name": "Story",
+            "color": "#CBAA47",
+            "sort_index": 363,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^0x[a-fA-F0-9]{40}$"
+        },
+        {
+            "asset_id": "7f104d51-59e1-47d0-8b0a-26f810f00184",
+            "code": "PENGU",
+            "name": "Pudgy Penguins",
+            "color": "#8DB4FF",
+            "sort_index": 364,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "a66b2444-4ac9-48e8-9f39-bc7340c03d30",
+            "code": "POPCAT",
+            "name": "Popcat (SOL)",
+            "color": "#4E1E1E",
+            "sort_index": 365,
+            "exponent": 9,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "c914ef4f-6cc1-4bc9-96ff-1293d2a913fa",
+            "code": "TAO",
+            "name": "Bittensor",
+            "color": "#0A0B0D",
+            "sort_index": 366,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^5[1-9A-HJ-NP-Za-km-z]{47}$"
+        },
+        {
+            "asset_id": "d92bc9e1-19b6-41c4-bab0-58f8e57ff1de",
+            "code": "KAITO",
+            "name": "Kaito",
+            "color": "#32FFDC",
+            "sort_index": 367,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "4b47f9f3-9b80-40cf-8668-a466bea4aab4",
+            "code": "PYTH",
+            "name": "Pyth Network",
+            "color": "#7142CF",
+            "sort_index": 368,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "5b2cccfb-0ee1-4f15-af2e-eab0a4a095fe",
+            "code": "MORPHO",
+            "name": "Morpho",
+            "color": "#2470FF",
+            "sort_index": 369,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "98b2cd99-e2e4-47ed-8505-0b323f8b6cb4",
+            "code": "REZ",
+            "name": "Renzo",
+            "color": "#C4FF61",
+            "sort_index": 370,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "cf6f8b66-e385-415e-ac02-a2e2e51defe6",
+            "code": "COOKIE",
+            "name": "Cookie DAO",
+            "color": "#C7F5D3",
+            "sort_index": 371,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "a8051025-d826-4702-b782-d525665b28c3",
+            "code": "RED",
+            "name": "Redstone",
+            "color": "#AE0822",
+            "sort_index": 372,
+            "exponent": 18,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "ad8399ae-1057-4993-9cf2-ca9fa4bc0b39",
+            "code": "ATH",
+            "name": "Aethir",
+            "color": "#DFFD6F",
+            "sort_index": 373,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "ae3fabbc-4020-4e2f-b713-f6c6bd96e026",
+            "code": "SYRUP",
+            "name": "Maple Finance",
+            "color": "#FC784A",
+            "sort_index": 374,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "a031d013-886a-4948-9513-84b007758dc7",
+            "code": "FAI",
+            "name": "Freysa",
+            "color": "#0AC23B",
+            "sort_index": 375,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "d14567aa-58d3-449a-904f-8f0a14d13cb5",
+            "code": "L3",
+            "name": "Layer3",
+            "color": "#0A0B0D",
+            "sort_index": 376,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "efe6a947-027e-4002-9e04-a2c7d959ba60",
+            "code": "ALT",
+            "name": "Altlayer",
+            "color": "#6667AB",
+            "sort_index": 377,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "5992b214-b5cd-52ee-8140-b17f755764b9",
+            "code": "PENDLE",
+            "name": "Pendle",
+            "color": "#1B2D4E",
+            "sort_index": 378,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "3a17b37b-18ad-472c-a6ec-5d7c57e55f24",
+            "code": "DOGINME",
+            "name": "doginme",
+            "color": "#2555C3",
+            "sort_index": 379,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "447eb5df-0a92-44d2-a392-e6d358f257ef",
+            "code": "KEYCAT",
+            "name": "Keyboard Cat",
+            "color": "#A06130",
+            "sort_index": 380,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "545dc519-b9e2-4cd5-b69d-16f0d8de4536",
+            "code": "EDGE",
+            "name": "Definitive",
+            "color": "#C3A164",
+            "sort_index": 381,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "9a5a7590-8070-420a-9cac-56abb2ae3c4d",
+            "code": "PROMPT",
+            "name": "Wayfinder",
+            "color": "#E0D1AA",
+            "sort_index": 382,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "f2828888-f170-4a38-97fa-0fa660663cd5",
+            "code": "KERNEL",
+            "name": "KernelDAO",
+            "color": "#BB4D32",
+            "sort_index": 383,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "3168b248-87c6-5452-a129-2bb38bef35d8",
+            "code": "RSR",
+            "name": "Reserve Rights",
+            "color": "#0151AF",
+            "sort_index": 384,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "3d7c8464-5451-4ced-9991-8c90863ac47e",
+            "code": "CLANKER",
+            "name": "tokenbot",
+            "color": "#8A63D2",
+            "sort_index": 385,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "0c26413b-4404-407d-a8fc-e25d1dd8608e",
+            "code": "ZORA",
+            "name": "Zora",
+            "color": "#386DEF",
+            "sort_index": 386,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "47a3de4f-0d06-46ac-b39e-37286ad03c72",
+            "code": "WLD",
+            "name": "Worldcoin",
+            "color": "#0A0B0D",
+            "sort_index": 387,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "a2352b8d-79a2-4b78-9136-df967df9a3c5",
+            "code": "MANTLE",
+            "name": "Mantle",
+            "color": "#2EC1A1",
+            "sort_index": 388,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "fc8f2c01-f78f-5e4d-a72d-4692a57ce4ca",
+            "code": "PAXG",
+            "name": "PAX Gold",
+            "color": "#E5CB22",
+            "sort_index": 389,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "26eb1ca8-7fd0-4d08-a1b0-538064688104",
+            "code": "SXT",
+            "name": "Space and Time",
+            "color": "#D900D0",
+            "sort_index": 390,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "396d81f8-9635-4d6e-85e1-083b5deabed4",
+            "code": "LA",
+            "name": "Lagrange",
+            "color": "#187F7A",
+            "sort_index": 391,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "356313de-17ad-4378-a0ac-c4630fc51637",
+            "code": "ENA",
+            "name": "Ethena",
+            "color": "#111111",
+            "sort_index": 392,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "75b2a4a6-6e08-4347-a871-4bbe2bc81b38",
+            "code": "HOME",
+            "name": "HOME",
+            "color": "#001B1C",
+            "sort_index": 393,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "6d592cc1-6eac-46a9-8fa2-05609c666ee9",
+            "code": "FARTCOIN",
+            "name": "Fartcoin",
+            "color": "#0A0B0D",
+            "sort_index": 394,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "9067d4d7-14b1-4fab-8a99-da07500962d7",
+            "code": "SQD",
+            "name": "Subsquid",
+            "color": "#222373",
+            "sort_index": 395,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "112e3d90-1195-5ed0-ad05-a703700778fa",
+            "code": "CAKE",
+            "name": "PancakeSwap",
+            "color": "#3AD3DF",
+            "sort_index": 396,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "b5a46e8a-6fd0-4290-adda-48562c016d74",
+            "code": "SPK",
+            "name": "Spark",
+            "color": "#FC7677",
+            "sort_index": 397,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "4ef8c60c-90a2-48d7-848f-6c505118e1a8",
+            "code": "S",
+            "name": "Sonic",
+            "color": "#141416",
+            "sort_index": 398,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^0x[a-fA-F0-9]{40}$"
+        },
+        {
+            "asset_id": "199e104e-8530-4cf8-8ad4-75517050cc1b",
+            "code": "NEWT",
+            "name": "Newton",
+            "color": "#0A0B0D",
+            "sort_index": 399,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "043cdf9c-cf77-47d8-b62f-64a07398de4c",
+            "code": "W",
+            "name": "Wormhole",
+            "color": "#0A0B0D",
+            "sort_index": 400,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "4a3520cc-3470-4ef8-9304-37a87200a8ae",
+            "code": "USDS",
+            "name": "USDS",
+            "color": "#FF6D6D",
+            "sort_index": 401,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "c74a34f5-b881-4a40-9e78-3f7f8fda5214",
+            "code": "SKY",
+            "name": "Sky",
+            "color": "#281A78",
+            "sort_index": 402,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "26d4c8c4-3132-485a-af94-e940c4276bc4",
+            "code": "PUMP",
+            "name": "Pump.fun",
+            "color": "#5FCB88",
+            "sort_index": 403,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "cf511176-7683-4458-9122-b085dc267303",
+            "code": "ERA",
+            "name": "Caldera",
+            "color": "#FC5000",
+            "sort_index": 404,
+            "exponent": 8,
+            "type": "crypto",
+            "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$"
+        },
+        {
+            "asset_id": "a7395248-7e55-4fd4-a7dc-2fdfc36093e6",
+            "code": "JITOSOL",
+            "name": "Jito Staked SOL",
+            "color": "#72B186",
+            "sort_index": 405,
+            "exponent": 9,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        },
+        {
+            "asset_id": "708bab77-82f7-47a1-abdb-6da116b3f86c",
+            "code": "MPLX",
+            "name": "Metaplex",
+            "color": "#0A0B0D",
+            "sort_index": 406,
+            "exponent": 6,
+            "type": "crypto",
+            "address_regex": "^[1-9A-HJ-NP-Za-km-z]{32,44}"
+        }
+    ]
+}
