@@ -1,0 +1,69 @@
+{
+    "transfer": {
+        "user_entered_amount": {
+            "value": "10",
+            "currency": "USD"
+        },
+        "amount": {
+            "value": "10",
+            "currency": "USD"
+        },
+        "total": {
+            "value": "10",
+            "currency": "USD"
+        },
+        "subtotal": {
+            "value": "10",
+            "currency": "USD"
+        },
+        "idem": "97c0dcf2-daf7-446c-8dcc-66a9b72b6391",
+        "committed": false,
+        "id": "97c0dcf2-daf7-446c-8dcc-66a9b72b6391",
+        "instant": false,
+        "source": {
+            "type": "LEDGER_ACCOUNT",
+            "network": "internal_retail",
+            "payment_method_id": "",
+            "ledger_account": {
+                "account_id": "f2a50186-34a5-4a92-95e1-5b6cf307bb35",
+                "currency": "USD",
+                "owner": {
+                    "id": "5a48fda3bbf66c03a6509af2",
+                    "uuid": "",
+                    "user_uuid": "",
+                    "type": "RETAIL"
+                }
+            }
+        },
+        "target": {
+            "type": "EXTERNAL_PAYMENT_METHOD",
+            "network": "ach",
+            "payment_method_id": "",
+            "external_payment_method": {
+                "payment_method_id": "5a48fe239b15170130598e9c"
+            }
+        },
+        "payout_at": "2025-04-12T19:29:48.611016197Z",
+        "status": "",
+        "user_reference": "",
+        "type": "TRANSFER_TYPE_WITHDRAWAL",
+        "created_at": null,
+        "updated_at": null,
+        "user_warnings": [],
+        "fees": [],
+        "total_fee": {
+            "title": "Fee Total",
+            "description": "Total fee associated with this transaction",
+            "amount": {
+                "value": "0.00",
+                "currency": "USD"
+            },
+            "type": "COINBASE"
+        },
+        "cancellation_reason": null,
+        "hold_days": 0,
+        "nextStep": null,
+        "checkout_url": "",
+        "requires_completion_step": false
+    }
+}

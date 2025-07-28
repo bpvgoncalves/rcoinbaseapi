@@ -72,6 +72,7 @@ test_that("deposit functions throw error for invalid input", {
   expect_error(deposit_list(NULL), "Invalid parameter `account_uuid`")
   expect_error(deposit_list(123), "Invalid parameter `account_uuid`")
   expect_error(deposit_list(456L), "Invalid parameter `account_uuid`")
+  expect_error(deposit_list(7.89), "Invalid parameter `account_uuid`")
   expect_error(deposit_list(NA), "Invalid parameter `account_uuid`")
   expect_error(deposit_list(NaN), "Invalid parameter `account_uuid`")
   expect_error(deposit_list("not-a-uuid"), "Invalid parameter `account_uuid`")
@@ -80,12 +81,12 @@ test_that("deposit functions throw error for invalid input", {
                "Invalid parameter `account_uuid`")
   expect_error(deposit_new(123, 100, "USD", "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
                "Invalid parameter `account_uuid`")
+  expect_error(deposit_new(NA, 100, "USD", "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
+               "Invalid parameter `account_uuid`")
   expect_error(deposit_new("not-a-uuid", 100, "USD", "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
                "Invalid parameter `account_uuid`")
 
-  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2",
-                           NULL,
-                           "USD",
+  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", NULL, "USD",
                            "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
                "Invalid parameter `amount`")
   expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", NA, "USD",
@@ -95,6 +96,9 @@ test_that("deposit functions throw error for invalid input", {
                            "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
                "Invalid parameter `amount`")
   expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", Inf, "USD",
+                           "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
+               "Invalid parameter `amount`")
+  expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", NaN, "USD",
                            "ce2316d0-29d6-4bf5-85c5-940dfe19acbb"),
                "Invalid parameter `amount`")
   expect_error(deposit_new("b5d211c3-95fe-451b-95e2-6f97442655b2", c(1.11, 2.22), "USD",
