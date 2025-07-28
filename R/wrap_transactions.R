@@ -167,7 +167,7 @@ transaction_send <- function(account_uuid, to, amount, currency) {
                 currency = currency,
                 idem = uuid::UUIDgenerate())
 
-  resp <- apirequest("GET",
+  resp <- apirequest("POST",
                      "v2/accounts",
                      path_params = c(account_uuid, "transactions"),
                      query_params = q_par,
